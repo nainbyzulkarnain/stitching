@@ -14,14 +14,12 @@
        NAIN ATELIER DESIGN SYSTEM — Modern Executive POS
        ============================================================ */
     :root {
-      /* Brand Accent System */
       --brand-orange: #f97316;
       --brand-orange-hover: #ea580c;
       --brand-orange-light: #fff7ed;
       --brand-orange-border: #ffedd5;
       --brand-glow: rgba(249, 115, 22, 0.18);
 
-      /* Dark Slate Neutrals */
       --slate-900: #0f172a;
       --slate-800: #1e293b;
       --slate-700: #334155;
@@ -32,7 +30,6 @@
       --slate-100: #f1f5f9;
       --slate-50:  #f8fafc;
 
-      /* Semantic Colors */
       --success: #10b981;
       --success-bg: #ecfdf5;
       --success-border: #a7f3d0;
@@ -49,14 +46,12 @@
       --info-bg: #eef2ff;
       --info-border: #c7d2fe;
 
-      /* Layout & Geometry */
       --bg: #f3f4f6;
       --surface: #ffffff;
       --radius-sm: 6px;
       --radius: 10px;
       --radius-lg: 14px;
 
-      /* Shadows */
       --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
       --shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.08);
       --shadow-lg: 0 20px 35px -8px rgba(15, 23, 42, 0.16);
@@ -77,7 +72,7 @@
 
     .num { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; }
 
-    /* ============ HEADER ============ */
+    /* HEADER */
     header {
       background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
       color: white;
@@ -152,7 +147,7 @@
     }
     .logout-btn:hover { background: var(--brand-orange); border-color: var(--brand-orange); color: #fff; box-shadow: var(--shadow-orange); }
 
-    /* ============ LOGIN SCREEN ============ */
+    /* LOGIN SCREEN */
     #login-screen {
       display: flex;
       flex-direction: column;
@@ -223,7 +218,7 @@
     #app-content { display: none; }
     .container { max-width: 1400px; margin: 24px auto; padding: 0 24px; }
 
-    /* ============ TABS NAVIGATION ============ */
+    /* TABS */
     .nav-tabs {
       display: flex; gap: 8px; margin-bottom: 24px;
       flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
@@ -237,7 +232,7 @@
     .nav-tabs button {
       flex: 1 1 auto;
       white-space: nowrap;
-      padding: 11px 20px;
+      padding: 11px 18px;
       background: transparent;
       border: none;
       font-weight: 700;
@@ -297,7 +292,7 @@
       flex-shrink: 0;
     }
 
-    /* ============ STAT CARDS ============ */
+    /* STAT CARDS */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -350,7 +345,7 @@
     .stat-details .value { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--slate-900); letter-spacing: -0.03em; }
     .stat-details .caption { font-size: 11px; color: var(--slate-400); margin-top: 3px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    /* ============ CHARTS SECTION ============ */
+    /* CHARTS */
     .filter-card {
       background: var(--slate-50); padding: 16px; border-radius: var(--radius); border: 1px solid var(--slate-200);
       margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end;
@@ -418,7 +413,7 @@
       font-weight: 700;
     }
 
-    /* ============ ORDER FORM ============ */
+    /* ORDER FORM */
     .order-subgrid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 380px;
@@ -451,7 +446,7 @@
     }
     .add-btn:hover { background: var(--slate-700); }
 
-    /* ============ LIVE INVOICE PANEL ============ */
+    /* LIVE INVOICE */
     .live-bill {
       background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--slate-200);
       box-shadow: var(--shadow); overflow: hidden; position: sticky; top: 86px;
@@ -487,7 +482,7 @@
     }
     .checkout-btn:hover { filter: brightness(1.08); }
 
-    /* ============ TOASTS ============ */
+    /* TOASTS */
     #toast-container {
       position: fixed; top: 80px; right: 20px; z-index: 99999;
       display: flex; flex-direction: column; gap: 10px; pointer-events: none;
@@ -510,7 +505,7 @@
     .toast.toast-warning { border-left-color: var(--warning); }
     @keyframes toastSlideIn { from { transform: translateX(110%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-    /* ============ MODALS ============ */
+    /* MODALS */
     .modal-overlay {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(15, 23, 42, 0.65); z-index: 1000;
@@ -539,7 +534,7 @@
     .v-box div { font-weight: 700; font-size: 14px; color: var(--slate-900); }
     .v-cart-list { background: var(--slate-50); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--slate-200); margin-bottom: 14px; max-height: 160px; overflow-y: auto; }
 
-    /* ============ TABLES ============ */
+    /* TABLES */
     .table-container { overflow-x: auto; width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--slate-200); background: #fff; }
     table { width: 100%; border-collapse: collapse; }
     th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--slate-200); font-size: 13px; white-space: nowrap; }
@@ -597,7 +592,45 @@
       padding-left: 40px !important;
     }
 
-    /* ============ RESPONSIVE ============ */
+    /* 10-ITEM NUMBERED PAGINATION BAR */
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      padding: 8px 4px 4px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pagination-summary { font-size: 12px; color: var(--slate-500); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+    .pagination-pages { display: flex; gap: 4px; align-items: center; }
+    .page-btn {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      color: var(--slate-700);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .page-btn:hover:not(:disabled) {
+      background: var(--slate-900);
+      color: #fff;
+      border-color: var(--slate-900);
+    }
+    .page-btn.active {
+      background: var(--brand-orange);
+      color: #fff;
+      border-color: var(--brand-orange);
+      box-shadow: var(--shadow-orange);
+    }
+    .page-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .page-ellipsis { color: var(--slate-400); font-weight: 700; padding: 0 4px; font-size: 12px; }
+
+    /* RESPONSIVE */
     @media screen and (max-width: 768px) {
       header { padding: 10px 16px; }
       header h1 { font-size: 16px; }
@@ -609,14 +642,15 @@
       .live-bill { position: static; }
 
       .nav-tabs {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+        display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
         border-radius: var(--radius); padding: 6px; margin-bottom: 16px;
       }
-      .nav-tabs button { width: 100%; text-align: center; border-radius: var(--radius-sm); padding: 11px 6px; font-size: 12px; }
+      .nav-tabs button { width: 100%; text-align: center; border-radius: var(--radius-sm); padding: 11px 4px; font-size: 11px; }
       .form-row { grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px; }
       .suit-inputs { grid-template-columns: 1.2fr 1fr 1fr 0.8fr; }
       .add-btn { grid-column: 1 / -1; height: 44px; }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .pagination-bar { flex-direction: column; align-items: center; }
     }
 
     @media screen and (max-width: 480px) {
@@ -625,6 +659,7 @@
       .add-btn { grid-column: 1 / -1; }
       .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
       .action-btn { justify-content: center; }
+      .nav-tabs { grid-template-columns: 1fr 1fr; }
     }
 
     /* THERMAL RECEIPT PRINT STYLES */
@@ -705,6 +740,7 @@
         <button id="tab-btn-pend" onclick="switchTab('pending', this)">Pending <span class="tab-count" id="tabCountPend">0</span></button>
         <button id="tab-btn-comp" onclick="switchTab('completed', this)">Completed <span class="tab-count" id="tabCountComp">0</span></button>
         <button id="tab-btn-cust" onclick="switchTab('customers', this)">Customers</button>
+        <button id="tab-btn-vouch" onclick="switchTab('vouchers', this)">Bank Vouchers <span class="tab-count" id="tabCountVouch">0</span></button>
       </div>
 
       <!-- ANALYTICS TAB -->
@@ -800,24 +836,28 @@
               </div>
             </div>
 
-            <div class="stat-card sc-purple" style="cursor: pointer;" onclick="openBankModal()" role="button" tabindex="0">
+            <!-- CLICKABLE CASH IN HAND CARD (SWITCHES TO FULL VOUCHERS PAGE) -->
+            <div class="stat-card sc-purple" style="cursor: pointer;" onclick="openCashInHandPage()" role="button" tabindex="0" title="Click to view all saved vouchers on a full page">
               <div class="stat-icon-box">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
               </div>
               <div class="stat-details">
-                <label style="color: #8b5cf6;">Cash In Hand</label>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <label style="color: #8b5cf6; cursor:pointer;">Cash In Hand</label>
+                  <span style="font-size:10px; color:#8b5cf6; font-weight:800;">View Full Page &rarr;</span>
+                </div>
                 <div class="value" id="dash-cash-in-hand" style="color: #8b5cf6;">Rs. 0</div>
                 <div class="caption">Net collected minus deposits</div>
               </div>
             </div>
           </div>
 
-          <!-- REDESIGNED CHARTS SECTION -->
+          <!-- CHARTS SECTION -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-bottom: 24px;">
             <div class="chart-panel">
               <div class="chart-panel-header">
                 <h4 class="chart-panel-title">Financial Revenue Progress</h4>
-                <span class="chart-badge chart-badge-green" id="badge-collection-rate">↑ 0% Collected</span>
+                <span class="chart-badge chart-badge-green" id="badge-collection-rate">&uarr; 0% Collected</span>
               </div>
               <div style="height: 220px; position: relative;">
                 <canvas id="revChart"></canvas>
@@ -855,6 +895,7 @@
             </div>
           </div>
 
+          <!-- ANALYTICS LEDGER (10 ITEMS PER PAGE) -->
           <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <h3 style="color: var(--slate-900); font-size: 14px; font-weight: 800; margin: 0;">Detailed Date Range Ledger</h3>
             <button class="export-btn" onclick="exportLedgerCSV()" id="exportCsvBtn">Export CSV</button>
@@ -878,6 +919,7 @@
               </tbody>
             </table>
           </div>
+          <div id="analyticsPagination"></div>
         </div>
       </div>
 
@@ -931,125 +973,144 @@
         </div>
       </div>
 
-      <!-- PENDING ORDERS TAB -->
+      <!-- PENDING ORDERS TAB (10 ITEMS PER PAGE) -->
       <div id="pending" class="tab-content">
         <div class="main-card">
           <h2 class="card-title">Pending Orders</h2>
-          <input type="text" id="searchP" class="search-input" placeholder="Search pending orders..." style="width:100%; margin-bottom: 14px;" onkeyup="filterTable('pTable', 'searchP')">
+          <input type="text" id="searchP" class="search-input" placeholder="Search pending orders..." style="width:100%; margin-bottom: 14px;" onkeyup="filterPendingSearch()">
           <div class="table-container">
             <table id="pTable">
               <thead><tr><th>Order #</th><th>Customer</th><th>Due Date</th><th>Balance Due</th><th>Actions</th></tr></thead>
               <tbody id="pBody"><tr><td colspan="5" class="empty-state">Loading orders...</td></tr></tbody>
             </table>
           </div>
+          <div id="pendingPagination"></div>
         </div>
       </div>
 
-      <!-- COMPLETED ORDERS TAB -->
+      <!-- COMPLETED ORDERS TAB (10 ITEMS PER PAGE) -->
       <div id="completed" class="tab-content">
         <div class="main-card">
           <h2 class="card-title">Completed Orders</h2>
-          <input type="text" id="searchC" class="search-input" placeholder="Search completed orders..." style="width:100%; margin-bottom: 14px;" onkeyup="filterTable('cTable', 'searchC')">
+          <input type="text" id="searchC" class="search-input" placeholder="Search completed orders..." style="width:100%; margin-bottom: 14px;" onkeyup="filterCompletedSearch()">
           <div class="table-container">
             <table id="cTable">
               <thead><tr><th>Order #</th><th>Customer</th><th>Delivered At</th><th>Amount Paid</th><th>Status</th><th>Actions</th></tr></thead>
               <tbody id="cBody"><tr><td colspan="6" class="empty-state">Loading orders...</td></tr></tbody>
             </table>
           </div>
+          <div id="completedPagination"></div>
         </div>
       </div>
 
-      <!-- CUSTOMERS TAB -->
+      <!-- CUSTOMERS TAB (10 ITEMS PER PAGE) -->
       <div id="customers" class="tab-content">
         <div class="main-card">
           <h2 class="card-title">Customer Directory</h2>
-          <input type="text" id="searchCust" class="search-input" placeholder="Search customers by name or phone..." style="width:100%; margin-bottom: 14px;" onkeyup="filterTable('custTable', 'searchCust')">
+          <input type="text" id="searchCust" class="search-input" placeholder="Search customers by name or phone..." style="width:100%; margin-bottom: 14px;" onkeyup="filterCustomersSearch()">
           <div class="table-container">
             <table id="custTable">
               <thead><tr><th>Customer</th><th>Phone</th><th>Orders</th><th>Total Business</th><th>Outstanding</th><th>Contact &amp; Actions</th></tr></thead>
               <tbody id="custBody"><tr><td colspan="6" class="empty-state">No customers recorded yet.</td></tr></tbody>
             </table>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BANK DEPOSIT & CASH MANAGER MODAL -->
-  <div class="modal-overlay" id="bankModal">
-    <div class="modal-content" style="max-width: 660px;">
-      <div class="view-header">
-        <h2>Bank Deposit &amp; Cash Reconciliation</h2>
-        <button class="close-btn" onclick="closeModal('bankModal')">&#10005;</button>
-      </div>
-
-      <div class="view-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 18px;">
-        <div class="v-box" style="border-top:3px solid var(--slate-900);">
-          <label>Net Revenue Collected</label>
-          <div id="bm-net-collected" class="num" style="color:var(--slate-900); font-size:15px;">Rs. 0</div>
-        </div>
-        <div class="v-box" style="background:var(--success-bg); border-color:var(--success-border); border-top:3px solid var(--success);">
-          <label style="color:var(--success);">Deposited to Bank</label>
-          <div id="bm-bank-total" class="num" style="color:var(--success); font-size:15px;">Rs. 0</div>
-        </div>
-        <div class="v-box" style="background:#f3e8ff; border-color:#e9d5ff; border-top:3px solid #8b5cf6;">
-          <label style="color:#8b5cf6;">Cash in Hand</label>
-          <div id="bm-cash-hand" class="num" style="color:#8b5cf6; font-size:16px;">Rs. 0</div>
+          <div id="customersPagination"></div>
         </div>
       </div>
 
-      <div id="dep-edit-alert" style="display:none; background: var(--brand-orange-light); color: var(--brand-orange-hover); padding: 12px 14px; border-radius: var(--radius-sm); font-weight: 700; margin-bottom: 14px; font-size: 12.5px; border: 1px solid var(--brand-orange-border);">
-        Editing Deposit Voucher: <span id="dep-edit-id-label"></span>.
-        <span style="text-decoration: underline; cursor: pointer; float: right;" onclick="cancelDepositEdit()">Cancel Edit</span>
-      </div>
-
-      <div style="background: var(--slate-50); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--slate-200); margin-bottom: 20px;">
-        <h4 style="margin:0 0 14px 0; font-size: 11px; font-weight: 800; color: var(--slate-900); text-transform: uppercase; letter-spacing: 0.9px;">New Bank Deposit Voucher</h4>
-        <div class="form-row" style="margin-bottom: 12px;">
-          <div class="form-group">
-            <label>Deposit Date</label>
-            <input type="date" id="depDate">
+      <!-- FULL SEPARATE PAGE: CASH IN HAND & BANK VOUCHERS (10 ITEMS PER PAGE) -->
+      <div id="vouchers" class="tab-content">
+        <div class="main-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <button class="page-btn" onclick="switchTab('dashboard', document.getElementById('tab-btn-dash'))" style="margin-bottom:8px; font-size:11px;">&larr; Back to Analytics</button>
+              <h2 class="card-title" style="margin:0;">Cash in Hand &amp; Bank Vouchers</h2>
+            </div>
+            <button class="add-btn" style="background:#8b5cf6;" onclick="toggleVoucherForm()">+ Record Bank Deposit</button>
           </div>
-          <div class="form-group">
-            <label>Deposit Amount (Rs.)</label>
-            <input type="number" id="depAmount" placeholder="e.g. 25000">
+
+          <!-- RECONCILIATION SUMMARY BOXES -->
+          <div class="view-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 22px;">
+            <div class="v-box" style="border-top:3px solid var(--slate-900); padding:16px;">
+              <label>Net Revenue Collected</label>
+              <div id="bm-net-collected" class="num" style="color:var(--slate-900); font-size:18px; margin-top:4px;">Rs. 0</div>
+              <div style="font-size:11px; color:var(--slate-400); margin-top:3px;">Advances + delivery payments</div>
+            </div>
+            <div class="v-box" style="background:var(--success-bg); border-color:var(--success-border); border-top:3px solid var(--success); padding:16px;">
+              <label style="color:var(--success);">Total Bank Deposits</label>
+              <div id="bm-bank-total" class="num" style="color:var(--success); font-size:18px; margin-top:4px;">Rs. 0</div>
+              <div style="font-size:11px; color:var(--slate-500); margin-top:3px;">Transferred via deposit vouchers</div>
+            </div>
+            <div class="v-box" style="background:#f3e8ff; border-color:#e9d5ff; border-top:3px solid #8b5cf6; padding:16px;">
+              <label style="color:#8b5cf6;">Net Cash in Hand</label>
+              <div id="bm-cash-hand" class="num" style="color:#8b5cf6; font-size:19px; margin-top:4px;">Rs. 0</div>
+              <div style="font-size:11px; color:#8b5cf6; margin-top:3px;">Physical cash currently available</div>
+            </div>
           </div>
-        </div>
-        <div class="form-row" style="margin-bottom: 12px;">
-          <div class="form-group">
-            <label>Bank Name / Account</label>
-            <input type="text" id="depBank" placeholder="e.g. Meezan Bank / HBL">
+
+          <!-- VOUCHER FORM (COLLAPSIBLE) -->
+          <div id="voucherFormContainer" style="display:none; background: var(--slate-50); padding: 20px; border-radius: var(--radius); border: 1px solid var(--slate-200); margin-bottom: 24px;">
+            <div id="dep-edit-alert" style="display:none; background: var(--brand-orange-light); color: var(--brand-orange-hover); padding: 12px 14px; border-radius: var(--radius-sm); font-weight: 700; margin-bottom: 14px; font-size: 12.5px; border: 1px solid var(--brand-orange-border);">
+              Editing Deposit Voucher: <span id="dep-edit-id-label"></span>.
+              <span style="text-decoration: underline; cursor: pointer; float: right;" onclick="cancelDepositEdit()">Cancel Edit</span>
+            </div>
+            <h4 style="margin:0 0 14px 0; font-size: 12px; font-weight: 800; color: var(--slate-900); text-transform: uppercase; letter-spacing: 0.9px;">Save Bank Deposit Voucher</h4>
+            <div class="form-row" style="margin-bottom: 12px;">
+              <div class="form-group">
+                <label>Deposit Date</label>
+                <input type="date" id="depDate">
+              </div>
+              <div class="form-group">
+                <label>Deposit Amount (Rs.)</label>
+                <input type="number" id="depAmount" placeholder="e.g. 25000">
+              </div>
+            </div>
+            <div class="form-row" style="margin-bottom: 12px;">
+              <div class="form-group">
+                <label>Bank Name / Account</label>
+                <input type="text" id="depBank" placeholder="e.g. Meezan Bank / HBL">
+              </div>
+              <div class="form-group">
+                <label>Deposit Slip / Ref #</label>
+                <input type="text" id="depRef" placeholder="e.g. TRX-98765">
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label>Deposit Remarks / Notes</label>
+              <input type="text" id="depNotes" placeholder="e.g. Cash handed to Boss / Branch deposit">
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="add-btn" id="saveDepBtn" style="background: #8b5cf6;" onclick="submitBankDeposit()">SAVE VOUCHER</button>
+              <button class="page-btn" onclick="toggleVoucherForm()">Cancel</button>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Deposit Slip / Ref #</label>
-            <input type="text" id="depRef" placeholder="e.g. TRX-98765">
+
+          <!-- VOUCHERS LIST TABLE -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="color: var(--slate-900); font-size: 14px; font-weight: 800; margin: 0;">Bank Deposit Vouchers Ledger</h3>
           </div>
+          <input type="text" id="searchVouch" class="search-input" placeholder="Search vouchers by ID, Bank, or Reference..." style="width:100%; margin-bottom: 14px;" onkeyup="filterVouchersSearch()">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Voucher #</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Bank / Account</th>
+                  <th>Remarks / Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bankTableBody">
+                <tr><td colspan="6" class="empty-state">No deposit logs recorded.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="vouchersPagination"></div>
         </div>
-        <div class="form-group" style="margin-bottom: 14px;">
-          <label>Deposit Remarks / Notes</label>
-          <input type="text" id="depNotes" placeholder="e.g. Cash handed to Boss / Branch deposit">
-        </div>
-        <button class="add-btn" id="saveDepBtn" style="width: 100%; background: #8b5cf6; font-weight: 800;" onclick="submitBankDeposit()">SUBMIT BANK VOUCHER</button>
       </div>
 
-      <h4 style="margin: 0 0 12px 0; font-size: 11px; font-weight: 800; color: var(--slate-900); text-transform: uppercase; letter-spacing: 0.9px;">Bank Deposit Vouchers Ledger</h4>
-      <div class="table-container" style="max-height: 220px; overflow-y: auto;">
-        <table>
-          <thead>
-            <tr>
-              <th>Voucher #</th>
-              <th>Date</th>
-              <th>Amount</th>
-              <th>Bank / Account</th>
-              <th>Remarks / Notes</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="bankTableBody">
-            <tr><td colspan="6" class="empty-state">No deposit logs recorded.</td></tr>
-          </tbody>
-        </table>
-      </div>
     </div>
   </div>
 
@@ -1147,6 +1208,7 @@
   </div>
 
   <script>
+    /* LIVE GOOGLE APPS SCRIPT WEB APP BACKEND */
     const API_URL = "https://script.google.com/macros/s/AKfycbwr7nye0-W54yr-2nekrefkVrfmqD2pUdSXaBxZJsKUbpQLJS0mBYZ1ulDn4Hqx8bPlIg/exec";
 
     let authU = sessionStorage.getItem("pos_user") || "";
@@ -1161,6 +1223,22 @@
     let statusChartInstance = null;
     let pendingConfirmAction = null;
     let lastLedgerRows = [];
+
+    /* PAGINATION CONFIGURATION (10 ITEMS PER PAGE) */
+    const PAGE_SIZE = 10;
+    let pageState = {
+      analytics: 1,
+      pending: 1,
+      completed: 1,
+      customers: 1,
+      vouchers: 1
+    };
+
+    let filteredLedgerList = [];
+    let filteredPendingList = [];
+    let filteredCompletedList = [];
+    let filteredCustomerList = [];
+    let filteredVouchersList = [];
 
     const ICONS = {
       eye: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>',
@@ -1179,10 +1257,47 @@
     function actionIcon(name) { return '<span style="display:inline-flex; width:12px; height:12px;">' + ICONS[name] + '</span>'; }
     function fmtRs(n) { return 'Rs. ' + Number(n || 0).toLocaleString(); }
 
-    /* Helper function to extract numerical ID for sorting */
     function parseNumericId(str) {
       let num = parseInt(String(str).replace(/[^0-9]/g, ''), 10);
       return isNaN(num) ? 0 : num;
+    }
+
+    /* REUSABLE PAGINATION HELPER */
+    function paginateArray(array, page, pageSize = PAGE_SIZE) {
+      const totalPages = Math.ceil(array.length / pageSize) || 1;
+      const validPage = Math.min(Math.max(1, page), totalPages);
+      const start = (validPage - 1) * pageSize;
+      return {
+        items: array.slice(start, start + pageSize),
+        page: validPage,
+        totalPages: totalPages,
+        totalItems: array.length,
+        startIndex: array.length ? start + 1 : 0,
+        endIndex: Math.min(start + pageSize, array.length)
+      };
+    }
+
+    function renderPaginationBar(containerId, currentPage, totalPages, totalItems, startIndex, endIndex, callbackFnName) {
+      const el = document.getElementById(containerId);
+      if (!el) return;
+      if (totalPages <= 1) {
+        el.innerHTML = totalItems > 0 ? `<div class="pagination-bar"><div class="pagination-summary">Showing all ${totalItems} records</div></div>` : "";
+        return;
+      }
+      let html = `<div class="pagination-bar">`;
+      html += `<div class="pagination-summary">Showing ${startIndex}-${endIndex} of ${totalItems} records</div>`;
+      html += `<div class="pagination-pages">`;
+      html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="${callbackFnName}(${currentPage - 1})">&laquo; Prev</button>`;
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+          html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="${callbackFnName}(${i})">${i}</button>`;
+        } else if (i === currentPage - 2 || i === currentPage + 2) {
+          html += `<span class="page-ellipsis">...</span>`;
+        }
+      }
+      html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="${callbackFnName}(${currentPage + 1})">Next &raquo;</button>`;
+      html += `</div></div>`;
+      el.innerHTML = html;
     }
 
     window.onload = function() {
@@ -1323,7 +1438,13 @@
       if (btn) btn.classList.add('active');
       if (tabId === 'dashboard') runAnalyticsFilter();
       if (tabId === 'customers') renderCustomers();
-      if (tabId !== 'newOrder' && tabId !== 'dashboard' && tabId !== 'customers') fetchOrders();
+      if (tabId === 'pending') filterPendingSearch();
+      if (tabId === 'completed') filterCompletedSearch();
+      if (tabId === 'vouchers') {
+        fetchBankDeposits();
+        filterVouchersSearch();
+      }
+      if (tabId !== 'newOrder' && tabId !== 'dashboard' && tabId !== 'customers' && tabId !== 'vouchers') fetchOrders();
     }
 
     function parseDateSafely(dateStr) {
@@ -1367,13 +1488,13 @@
       runAnalyticsFilter();
     }
 
-    /* ============ DASHBOARD CHARTS ============ */
+    /* DASHBOARD CHARTS */
     function renderAnalyticsCharts(bookedVal, totalCollected, uncollected, pCount, cCount) {
       let collectionPct = bookedVal > 0 ? Math.round((totalCollected / bookedVal) * 100) : 0;
       let completionPct = (pCount + cCount) > 0 ? Math.round((cCount / (pCount + cCount)) * 100) : 0;
 
       let elCollectBadge = document.getElementById('badge-collection-rate');
-      if (elCollectBadge) elCollectBadge.innerText = `↑ ${collectionPct}% Collected`;
+      if (elCollectBadge) elCollectBadge.innerText = `\u2191 ${collectionPct}% Collected`;
 
       let elCompleteBadge = document.getElementById('badge-completion-rate');
       if (elCompleteBadge) elCompleteBadge.innerText = `${completionPct}% Completed`;
@@ -1383,7 +1504,6 @@
       if (document.getElementById('legend-pending-count')) document.getElementById('legend-pending-count').innerText = pCount;
       if (document.getElementById('legend-completed-count')) document.getElementById('legend-completed-count').innerText = cCount;
 
-      /* 1. HORIZONTAL VOLUME BAR CHART */
       let canvas1 = document.getElementById('revChart');
       if (canvas1) {
         let ctx1 = canvas1.getContext('2d');
@@ -1429,7 +1549,6 @@
         });
       }
 
-      /* 2. DOUGHNUT CHART */
       let canvas2 = document.getElementById('statusChart');
       if (canvas2) {
         let ctx2 = canvas2.getContext('2d');
@@ -1481,6 +1600,7 @@
       }
     }
 
+    /* 1. ANALYTICS & PAGINATED LEDGER */
     function runAnalyticsFilter() {
       let startVal = document.getElementById('dashStart').value;
       let endVal = document.getElementById('dashEnd').value;
@@ -1489,10 +1609,9 @@
 
       let revAdv = 0, revBal = 0, bookedVal = 0, uncollected = 0;
       let pCount = 0, cCount = 0;
-      let tableRows = '';
+      filteredLedgerList = [];
       lastLedgerRows = [];
 
-      /* FIX 1: Sort Orders Chronologically Ascending (Order 1 at Top, Order 7 at Bottom) */
       let sortedOrders = globalOrders.slice().sort((a, b) => parseNumericId(a.orderNumber) - parseNumericId(b.orderNumber));
 
       sortedOrders.forEach(o => {
@@ -1516,19 +1635,17 @@
         revAdv += advInFilter; revBal += balInFilter;
 
         if (inCreatedRange || inCompletedRange) {
-          let statusBadge = o.status === 'Completed' ? '<span class="badge-paid">Completed</span>' : '<span class="badge-pending">Pending</span>';
           lastLedgerRows.push([o.orderNumber, o.customerName, o.createdAt, o.status, tot, advInFilter, balInFilter, orderCollectedInRange]);
-
-          tableRows += `<tr>
-            <td><strong>${o.orderNumber}</strong></td>
-            <td>${o.customerName}</td>
-            <td>${o.createdAt}</td>
-            <td>${statusBadge}</td>
-            <td class="num">${fmtRs(tot)}</td>
-            <td class="num" style="color:var(--success); font-weight:700;">+ ${fmtRs(advInFilter)}</td>
-            <td class="num" style="color:var(--info); font-weight:700;">+ ${fmtRs(balInFilter)}</td>
-            <td class="num" style="font-weight:bold; color:var(--brand-orange-hover);">${fmtRs(orderCollectedInRange)}</td>
-          </tr>`;
+          filteredLedgerList.push({
+            orderNumber: o.orderNumber,
+            customerName: o.customerName,
+            createdAt: o.createdAt,
+            status: o.status,
+            tot: tot,
+            advInFilter: advInFilter,
+            balInFilter: balInFilter,
+            orderCollectedInRange: orderCollectedInRange
+          });
         }
       });
 
@@ -1541,9 +1658,32 @@
       document.getElementById('dash-count-pend').innerText = pCount + ' Pending';
       document.getElementById('dash-count-comp').innerText = cCount + ' Done';
 
-      document.getElementById('analyticsTableBody').innerHTML = tableRows || '<tr><td colspan="8" class="empty-state">No financial transactions in selected date range.</td></tr>';
+      renderAnalyticsLedger(1);
       renderAnalyticsCharts(bookedVal, totalCollected, uncollected, pCount, cCount);
       calculateCashInHand();
+    }
+
+    function renderAnalyticsLedger(page = 1) {
+      pageState.analytics = page;
+      const paginated = paginateArray(filteredLedgerList, page, PAGE_SIZE);
+      let tableRows = '';
+
+      paginated.items.forEach(o => {
+        let statusBadge = o.status === 'Completed' ? '<span class="badge-paid">Completed</span>' : '<span class="badge-pending">Pending</span>';
+        tableRows += `<tr>
+          <td><strong>${o.orderNumber}</strong></td>
+          <td>${o.customerName}</td>
+          <td>${o.createdAt}</td>
+          <td>${statusBadge}</td>
+          <td class="num">${fmtRs(o.tot)}</td>
+          <td class="num" style="color:var(--success); font-weight:700;">+ ${fmtRs(o.advInFilter)}</td>
+          <td class="num" style="color:var(--info); font-weight:700;">+ ${fmtRs(o.balInFilter)}</td>
+          <td class="num" style="font-weight:bold; color:var(--brand-orange-hover);">${fmtRs(o.orderCollectedInRange)}</td>
+        </tr>`;
+      });
+
+      document.getElementById('analyticsTableBody').innerHTML = tableRows || '<tr><td colspan="8" class="empty-state">No financial transactions in selected date range.</td></tr>';
+      renderPaginationBar("analyticsPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderAnalyticsLedger");
     }
 
     function exportLedgerCSV() {
@@ -1557,6 +1697,156 @@
       showToast("Ledger exported as CSV.", "success");
     }
 
+    /* 2. PENDING ORDERS PAGINATION */
+    function filterPendingSearch() {
+      let search = (document.getElementById('searchP')?.value || '').toUpperCase();
+      filteredPendingList = globalOrders.filter(o => 
+        o.status === 'Pending' && 
+        (o.orderNumber.toUpperCase().includes(search) || o.customerName.toUpperCase().includes(search) || (o.phone && o.phone.includes(search)))
+      ).slice().sort((a, b) => parseDateSafely(a.dueDate) - parseDateSafely(b.dueDate));
+
+      renderPendingTable(1);
+    }
+
+    function renderPendingTable(page = 1) {
+      pageState.pending = page;
+      const paginated = paginateArray(filteredPendingList, page, PAGE_SIZE);
+      let pBody = '';
+
+      paginated.items.forEach(o => {
+        pBody += `<tr>
+          <td><strong>${o.orderNumber}</strong></td><td>${o.customerName}</td><td>${o.dueDate} ${dueBadge(o.dueDate)}</td><td class="num" style="color:var(--danger); font-weight:bold;">${fmtRs(o.balance)}</td>
+          <td>
+            <div class="action-btns">
+              <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">${actionIcon('view')} View</button>
+              <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">${actionIcon('edit')} Edit</button>
+              <button class="action-btn btn-done" onclick="markDone('${o.orderNumber}')">${actionIcon('check')} Done</button>
+              <button class="action-btn btn-wa" onclick="sendWhatsApp('${o.orderNumber}')">${actionIcon('wa')} WA</button>
+              <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">${actionIcon('trash')} Del</button>
+            </div>
+          </td>
+        </tr>`;
+      });
+
+      document.getElementById('pBody').innerHTML = pBody || '<tr><td colspan="5" class="empty-state">No pending orders. All caught up!</td></tr>';
+      renderPaginationBar("pendingPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderPendingTable");
+    }
+
+    /* 3. COMPLETED ORDERS PAGINATION */
+    function filterCompletedSearch() {
+      let search = (document.getElementById('searchC')?.value || '').toUpperCase();
+      filteredCompletedList = globalOrders.filter(o => 
+        o.status !== 'Pending' && 
+        (o.orderNumber.toUpperCase().includes(search) || o.customerName.toUpperCase().includes(search) || (o.phone && o.phone.includes(search)))
+      ).slice().sort((a, b) => parseDateSafely(b.completedAt) - parseDateSafely(a.completedAt));
+
+      renderCompletedTable(1);
+    }
+
+    function renderCompletedTable(page = 1) {
+      pageState.completed = page;
+      const paginated = paginateArray(filteredCompletedList, page, PAGE_SIZE);
+      let cBody = '';
+
+      paginated.items.forEach(o => {
+        cBody += `<tr>
+          <td><strong>${o.orderNumber}</strong></td>
+          <td>${o.customerName}</td>
+          <td>${o.completedAt}</td>
+          <td class="num" style="color:var(--success); font-weight:800;">${fmtRs(o.total)}</td>
+          <td><span class="badge-paid">PAID</span></td>
+          <td>
+            <div class="action-btns">
+              <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">${actionIcon('view')} View</button>
+              <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">${actionIcon('edit')} Edit</button>
+              <button class="action-btn btn-wa" onclick="sendWhatsApp('${o.orderNumber}')">${actionIcon('wa')} WA</button>
+              <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">${actionIcon('trash')} Del</button>
+            </div>
+          </td>
+        </tr>`;
+      });
+
+      document.getElementById('cBody').innerHTML = cBody || '<tr><td colspan="6" class="empty-state">No completed orders yet.</td></tr>';
+      renderPaginationBar("completedPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderCompletedTable");
+    }
+
+    /* 4. CUSTOMER DIRECTORY PAGINATION */
+    function filterCustomersSearch() {
+      renderCustomers();
+    }
+
+    function renderCustomers() {
+      let map = {};
+      let search = (document.getElementById('searchCust')?.value || '').toUpperCase();
+
+      globalOrders.forEach(o => {
+        let key = (String(o.customerName).trim().toLowerCase() || 'unknown') + '|' + String(o.phone || '').trim();
+        if (!map[key]) {
+          map[key] = { name: o.customerName, phone: o.phone || '', orders: [], total: 0, outstanding: 0 };
+        }
+        map[key].orders.push(o.orderNumber);
+        map[key].total += parseFloat(o.total) || 0;
+        if (o.status === 'Pending') map[key].outstanding += parseFloat(o.balance) || 0;
+      });
+
+      filteredCustomerList = Object.values(map)
+        .filter(c => c.name.toUpperCase().includes(search) || c.phone.toUpperCase().includes(search))
+        .sort((a, b) => b.total - a.total);
+
+      renderCustomersTable(1);
+    }
+
+    function renderCustomersTable(page = 1) {
+      pageState.customers = page;
+      const paginated = paginateArray(filteredCustomerList, page, PAGE_SIZE);
+      let rows = '';
+
+      paginated.items.forEach(c => {
+        let outStyle = c.outstanding > 0 ? 'color:var(--danger); font-weight:800;' : 'color:var(--success); font-weight:700;';
+        let outText = c.outstanding > 0 ? fmtRs(c.outstanding) : 'Clear';
+        let phoneCell = c.phone ? `<span class="num" style="font-size:12px;">${c.phone}</span>` : '<span style="color:var(--slate-400);">&mdash;</span>';
+
+        let orderBadges = c.orders.map(ord => 
+          `<button class="action-btn btn-view" style="padding: 2px 7px; margin: 2px 2px 2px 0; font-size:11px;" onclick="openViewModal('${ord}')">${ord}</button>`
+        ).join('');
+
+        let latestOrder = c.orders[c.orders.length - 1];
+        let contactBtns = `
+          <div class="action-btns">
+            <button class="action-btn btn-view" onclick="openViewModal('${latestOrder}')">${actionIcon('view')} View</button>
+            ${c.phone ? `<button class="action-btn btn-wa" onclick="waContact('${String(c.phone).replace(/'/g, "")}', '${String(c.name).replace(/'/g, "")}')">${actionIcon('wa')} WA</button>
+            <a class="action-btn btn-view" href="tel:${String(c.phone).replace(/[^0-9+]/g, '')}" style="text-decoration:none;">${actionIcon('phone')} Call</a>` : ''}
+          </div>
+        `;
+
+        rows += `<tr>
+          <td style="font-weight:700;">${c.name}</td>
+          <td>${phoneCell}</td>
+          <td><div style="display:flex; flex-wrap:wrap; align-items:center;">${orderBadges}</div></td>
+          <td class="num" style="font-weight:700;">${fmtRs(c.total)}</td>
+          <td class="num" style="${outStyle}">${outText}</td>
+          <td>${contactBtns}</td>
+        </tr>`;
+      });
+
+      document.getElementById('custBody').innerHTML = rows || '<tr><td colspan="6" class="empty-state">No customers recorded yet.</td></tr>';
+      renderPaginationBar("customersPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderCustomersTable");
+    }
+
+    /* 5. FULL SEPARATE PAGE: CASH IN HAND & BANK VOUCHERS */
+    function openCashInHandPage() {
+      switchTab('vouchers', document.getElementById('tab-btn-vouch'));
+    }
+
+    function toggleVoucherForm() {
+      const form = document.getElementById('voucherFormContainer');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      if (form.style.display === 'block') {
+        document.getElementById('depDate').value = formatDateForInput(new Date());
+        document.getElementById('depAmount').focus();
+      }
+    }
+
     function calculateCashInHand() {
       let totalAllCollected = 0;
       globalOrders.forEach(o => {
@@ -1567,25 +1857,38 @@
       let totalDeposited = globalDeposits.reduce((sum, d) => sum + (parseFloat(d.amount) || 0), 0);
       let cashInHand = totalAllCollected - totalDeposited;
 
-      if (document.getElementById('dash-cash-in-hand')) document.getElementById('dash-cash-in-hand').innerText = 'Rs. ' + cashInHand.toLocaleString();
-      if (document.getElementById('bm-net-collected')) document.getElementById('bm-net-collected').innerText = 'Rs. ' + totalAllCollected.toLocaleString();
-      if (document.getElementById('bm-bank-total')) document.getElementById('bm-bank-total').innerText = 'Rs. ' + totalDeposited.toLocaleString();
-      if (document.getElementById('bm-cash-hand')) document.getElementById('bm-cash-hand').innerText = 'Rs. ' + cashInHand.toLocaleString();
-      renderBankTable();
+      if (document.getElementById('dash-cash-in-hand')) document.getElementById('dash-cash-in-hand').innerText = fmtRs(cashInHand);
+      if (document.getElementById('bm-net-collected')) document.getElementById('bm-net-collected').innerText = fmtRs(totalAllCollected);
+      if (document.getElementById('bm-bank-total')) document.getElementById('bm-bank-total').innerText = fmtRs(totalDeposited);
+      if (document.getElementById('bm-cash-hand')) document.getElementById('bm-cash-hand').innerText = fmtRs(cashInHand);
+      
+      filterVouchersSearch();
     }
 
-    function openBankModal() {
-      calculateCashInHand();
-      if (!editingDepositId) document.getElementById('depDate').value = formatDateForInput(new Date());
-      document.getElementById('bankModal').style.display = 'flex';
+    function filterVouchersSearch() {
+      let search = (document.getElementById('searchVouch')?.value || '').toUpperCase();
+      filteredVouchersList = globalDeposits
+        .filter(d => 
+          d.depositId.toUpperCase().includes(search) || 
+          (d.bankName && d.bankName.toUpperCase().includes(search)) || 
+          (d.reference && d.reference.toUpperCase().includes(search)) ||
+          (d.notes && d.notes.toUpperCase().includes(search))
+        )
+        .slice()
+        .sort((a, b) => parseNumericId(a.depositId) - parseNumericId(b.depositId));
+
+      let badge = document.getElementById('tabCountVouch');
+      if (badge) badge.innerText = globalDeposits.length;
+
+      renderBankTable(1);
     }
 
-    /* FIX 2: Sort Bank Vouchers Chronologically Ascending (DEP-1 at Top, DEP-N at Bottom) */
-    function renderBankTable() {
+    function renderBankTable(page = 1) {
+      pageState.vouchers = page;
+      const paginated = paginateArray(filteredVouchersList, page, PAGE_SIZE);
       let rows = '';
-      let sortedDeposits = globalDeposits.slice().sort((a, b) => parseNumericId(a.depositId) - parseNumericId(b.depositId));
 
-      sortedDeposits.forEach(d => {
+      paginated.items.forEach(d => {
         let remarksText = d.notes || d.reference || 'N/A';
         rows += `<tr>
           <td><strong>${d.depositId}</strong></td>
@@ -1601,13 +1904,16 @@
           </td>
         </tr>`;
       });
+
       let tableBody = document.getElementById('bankTableBody');
       if (tableBody) tableBody.innerHTML = rows || '<tr><td colspan="6" class="empty-state">No deposit logs recorded.</td></tr>';
+      renderPaginationBar("vouchersPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderBankTable");
     }
 
     async function fetchBankDeposits() {
       try {
-        let deposits = await apiCall("getBankDeposits"); globalDeposits = deposits;
+        let deposits = await apiCall("getBankDeposits");
+        globalDeposits = deposits;
         localStorage.setItem("cached_stitching_deposits", JSON.stringify(deposits));
         calculateCashInHand();
       } catch (err) { checkAuthError(err); }
@@ -1617,6 +1923,8 @@
       let dep = globalDeposits.find(d => d.depositId === depositId);
       if (!dep) { showToast("Voucher not found.", "error"); return; }
       editingDepositId = dep.depositId;
+      document.getElementById('voucherFormContainer').style.display = 'block';
+
       if (dep.date) {
         let dParts = String(dep.date).split('/');
         if (dParts.length === 3) document.getElementById('depDate').value = `${dParts[2]}-${dParts[1].padStart(2, '0')}-${dParts[0].padStart(2, '0')}`;
@@ -1631,6 +1939,7 @@
       let btn = document.getElementById('saveDepBtn');
       btn.innerText = "UPDATE BANK VOUCHER (" + dep.depositId + ")";
       btn.style.background = "var(--brand-orange)";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function cancelDepositEdit() {
@@ -1642,7 +1951,7 @@
       document.getElementById('depRef').value = '';
       document.getElementById('depNotes').value = '';
       let btn = document.getElementById('saveDepBtn');
-      btn.innerText = "SUBMIT BANK VOUCHER";
+      btn.innerText = "SAVE VOUCHER";
       btn.style.background = "#8b5cf6";
     }
 
@@ -1674,6 +1983,7 @@
       calculateCashInHand();
       let activeEditId = editingDepositId;
       cancelDepositEdit();
+      toggleVoucherForm();
 
       try {
         if (activeEditId) await apiCall("updateBankDeposit", { depositId: activeEditId, data: data });
@@ -1738,107 +2048,17 @@
     }
 
     function renderTables(orders) {
-      var pBody = '', cBody = '';
-      var pCount = 0, cCount = 0;
+      let pCount = orders.filter(o => o.status === 'Pending').length;
+      let cCount = orders.filter(o => o.status !== 'Pending').length;
 
-      let pendingOrders = orders.filter(o => o.status === 'Pending')
-        .slice().sort((a, b) => parseDateSafely(a.dueDate) - parseDateSafely(b.dueDate));
+      let tp = document.getElementById('tabCountPend'); 
+      let tc = document.getElementById('tabCountComp');
+      if (tp) tp.innerText = pCount; 
+      if (tc) tc.innerText = cCount;
 
-      let completedOrders = orders.filter(o => o.status !== 'Pending')
-        .slice().sort((a, b) => parseDateSafely(b.completedAt) - parseDateSafely(a.completedAt));
-
-      pendingOrders.forEach(function(o) {
-        pCount++;
-        pBody += `<tr>
-          <td><strong>${o.orderNumber}</strong></td><td>${o.customerName}</td><td>${o.dueDate} ${dueBadge(o.dueDate)}</td><td class="num" style="color:var(--danger); font-weight:bold;">${fmtRs(o.balance)}</td>
-          <td>
-            <div class="action-btns">
-              <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">${actionIcon('view')} View</button>
-              <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">${actionIcon('edit')} Edit</button>
-              <button class="action-btn btn-done" onclick="markDone('${o.orderNumber}')">${actionIcon('check')} Done</button>
-              <button class="action-btn btn-wa" onclick="sendWhatsApp('${o.orderNumber}')">${actionIcon('wa')} WA</button>
-              <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">${actionIcon('trash')} Del</button>
-            </div>
-          </td>
-        </tr>`;
-      });
-
-      completedOrders.forEach(function(o) {
-        cCount++;
-        cBody += `<tr>
-          <td><strong>${o.orderNumber}</strong></td>
-          <td>${o.customerName}</td>
-          <td>${o.completedAt}</td>
-          <td class="num" style="color:var(--success); font-weight:800;">${fmtRs(o.total)}</td>
-          <td><span class="badge-paid">PAID</span></td>
-          <td>
-            <div class="action-btns">
-              <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">${actionIcon('view')} View</button>
-              <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">${actionIcon('edit')} Edit</button>
-              <button class="action-btn btn-wa" onclick="sendWhatsApp('${o.orderNumber}')">${actionIcon('wa')} WA</button>
-              <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">${actionIcon('trash')} Del</button>
-            </div>
-          </td>
-        </tr>`;
-      });
-
-      document.getElementById('pBody').innerHTML = pBody || '<tr><td colspan="5" class="empty-state">No pending orders. All caught up!</td></tr>';
-      document.getElementById('cBody').innerHTML = cBody || '<tr><td colspan="6" class="empty-state">No completed orders yet.</td></tr>';
-
-      let tp = document.getElementById('tabCountPend'); let tc = document.getElementById('tabCountComp');
-      if (tp) tp.innerText = pCount; if (tc) tc.innerText = cCount;
+      filterPendingSearch();
+      filterCompletedSearch();
       renderCustomers();
-    }
-
-    /* FIX 3: CUSTOMER DIRECTORY SHOWING ORDER BADGES & VIEW BUTTON */
-    function renderCustomers() {
-      let body = document.getElementById('custBody'); if (!body) return;
-      let map = {};
-
-      globalOrders.forEach(o => {
-        let key = (String(o.customerName).trim().toLowerCase() || 'unknown') + '|' + String(o.phone || '').trim();
-        if (!map[key]) {
-          map[key] = { name: o.customerName, phone: o.phone || '', orders: [], total: 0, outstanding: 0 };
-        }
-        map[key].orders.push(o.orderNumber);
-        map[key].total += parseFloat(o.total) || 0;
-        if (o.status === 'Pending') map[key].outstanding += parseFloat(o.balance) || 0;
-      });
-
-      let list = Object.values(map).sort((a, b) => b.total - a.total);
-      let rows = '';
-
-      list.forEach(c => {
-        let outStyle = c.outstanding > 0 ? 'color:var(--danger); font-weight:800;' : 'color:var(--success); font-weight:700;';
-        let outText = c.outstanding > 0 ? fmtRs(c.outstanding) : 'Clear';
-        let phoneCell = c.phone ? `<span class="num" style="font-size:12px;">${c.phone}</span>` : '<span style="color:var(--slate-400);">—</span>';
-
-        // Display individual clickable Order Badges
-        let orderBadges = c.orders.map(ord => 
-          `<button class="action-btn btn-view" style="padding: 2px 7px; margin: 2px 2px 2px 0; font-size:11px;" onclick="openViewModal('${ord}')">${ord}</button>`
-        ).join('');
-
-        // Action column with View, WhatsApp and Call
-        let latestOrder = c.orders[c.orders.length - 1];
-        let contactBtns = `
-          <div class="action-btns">
-            <button class="action-btn btn-view" onclick="openViewModal('${latestOrder}')">${actionIcon('view')} View</button>
-            ${c.phone ? `<button class="action-btn btn-wa" onclick="waContact('${String(c.phone).replace(/'/g, "")}', '${String(c.name).replace(/'/g, "")}')">${actionIcon('wa')} WA</button>
-            <a class="action-btn btn-view" href="tel:${String(c.phone).replace(/[^0-9+]/g, '')}" style="text-decoration:none;">${actionIcon('phone')} Call</a>` : ''}
-          </div>
-        `;
-
-        rows += `<tr>
-          <td style="font-weight:700;">${c.name}</td>
-          <td>${phoneCell}</td>
-          <td><div style="display:flex; flex-wrap:wrap; align-items:center;">${orderBadges}</div></td>
-          <td class="num" style="font-weight:700;">${fmtRs(c.total)}</td>
-          <td class="num" style="${outStyle}">${outText}</td>
-          <td>${contactBtns}</td>
-        </tr>`;
-      });
-
-      body.innerHTML = rows || '<tr><td colspan="6" class="empty-state">No customers recorded yet.</td></tr>';
     }
 
     async function fetchOrders() {
@@ -1848,7 +2068,8 @@
         let orders = await apiCall("getAllOrders");
         globalOrders = orders;
         localStorage.setItem("cached_stitching_orders", JSON.stringify(orders));
-        renderTables(orders); runAnalyticsFilter();
+        renderTables(orders); 
+        runAnalyticsFilter();
         if (tagText) tagText.innerText = "Stitching System";
       } catch (err) {
         if (tagText) tagText.innerText = "Stitching System";
@@ -2086,7 +2307,6 @@
       );
     }
 
-    function filterTable(tableId, inputId) { var filter = document.getElementById(inputId).value.toUpperCase(); var tr = document.getElementById(tableId).getElementsByTagName("tr"); for (var i = 1; i < tr.length; i++) { var text = tr[i].textContent || tr[i].innerText; tr[i].style.display = text.toUpperCase().indexOf(filter) > -1 ? "" : "none"; } }
     function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
     function resetForm() { clearInputErrors(); ['custName', 'phone', 'notes', 'dueDate'].forEach(id => document.getElementById(id).value = ''); document.getElementById('adv').value = '0'; cart = []; editingSuitIndex = null; updateBill(); closeModal('successModal'); }
     function triggerPrint(activeModalId) { document.getElementById(activeModalId).style.display = 'none'; setTimeout(() => { window.print(); setTimeout(() => { document.getElementById(activeModalId).style.display = 'flex'; }, 500); }, 100); }
