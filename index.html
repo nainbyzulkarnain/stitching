@@ -11,7 +11,7 @@
 
   <style>
     /* ============================================================
-       NAIN ATELIER DESIGN SYSTEM — Modern Executive POS
+       NAIN ATELIER DESIGN SYSTEM - Modern Executive POS
        ============================================================ */
     :root {
       --brand-orange: #f97316;
@@ -645,7 +645,7 @@
       header h1 { font-size: 15px; }
       .brand-zul { font-size: 24px; }
       .header-clock { display: none; }
-      .system-tag-green { display: none !important; } /* Eliminates collision with Logout button */
+      .system-tag-green { display: none !important; }
       .logout-btn { padding: 6px 12px; font-size: 11px; }
 
       .container { padding: 0 12px; margin: 14px auto; }
@@ -664,7 +664,6 @@
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .pagination-bar { flex-direction: column; align-items: center; }
 
-      /* VOUCHER CARDS MOBILE PERFECTION */
       .voucher-summary-grid {
         grid-template-columns: 1fr !important;
         gap: 12px !important;
@@ -709,7 +708,7 @@
       .r-grand { font-size: 13px; font-weight: bold; padding: 4px 0; border-top: 1px solid black; border-bottom: 1px solid black; margin: 4px 0; }
     }
   </style>
-  <title>NAIN by Zulkarnain — Stitching System</title>
+  <title>NAIN by Zulkarnain - Stitching System</title>
 </head>
 <body>
 
@@ -1000,45 +999,45 @@
         </div>
       </div>
 
-      <!-- PENDING ORDERS TAB (10 ITEMS PER PAGE) -->
+      <!-- PENDING ORDERS TAB (WITH # SERIAL NUMBERS) -->
       <div id="pending" class="tab-content">
         <div class="main-card">
           <h2 class="card-title">Pending Orders</h2>
           <input type="text" id="searchP" class="search-input" placeholder="Search pending orders..." style="width:100%; margin-bottom: 14px;" onkeyup="filterPendingSearch()">
           <div class="table-container">
             <table id="pTable">
-              <thead><tr><th>Order #</th><th>Customer</th><th>Due Date</th><th>Balance Due</th><th>Actions</th></tr></thead>
-              <tbody id="pBody"><tr><td colspan="5" class="empty-state">Loading orders...</td></tr></tbody>
+              <thead><tr><th style="width:45px;">#</th><th>Order #</th><th>Customer</th><th>Due Date</th><th>Balance Due</th><th>Actions</th></tr></thead>
+              <tbody id="pBody"><tr><td colspan="6" class="empty-state">Loading orders...</td></tr></tbody>
             </table>
           </div>
           <div id="pendingPagination"></div>
         </div>
       </div>
 
-      <!-- COMPLETED ORDERS TAB (10 ITEMS PER PAGE) -->
+      <!-- COMPLETED ORDERS TAB (WITH # SERIAL NUMBERS) -->
       <div id="completed" class="tab-content">
         <div class="main-card">
           <h2 class="card-title">Completed Orders</h2>
           <input type="text" id="searchC" class="search-input" placeholder="Search completed orders..." style="width:100%; margin-bottom: 14px;" onkeyup="filterCompletedSearch()">
           <div class="table-container">
             <table id="cTable">
-              <thead><tr><th>Order #</th><th>Customer</th><th>Delivered At</th><th>Amount Paid</th><th>Status</th><th>Actions</th></tr></thead>
-              <tbody id="cBody"><tr><td colspan="6" class="empty-state">Loading orders...</td></tr></tbody>
+              <thead><tr><th style="width:45px;">#</th><th>Order #</th><th>Customer</th><th>Delivered At</th><th>Amount Paid</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="cBody"><tr><td colspan="7" class="empty-state">Loading orders...</td></tr></tbody>
             </table>
           </div>
           <div id="completedPagination"></div>
         </div>
       </div>
 
-      <!-- CUSTOMERS TAB (10 ITEMS PER PAGE) -->
+      <!-- CUSTOMERS TAB (WITH # SERIAL NUMBERS) -->
       <div id="customers" class="tab-content">
         <div class="main-card">
           <h2 class="card-title">Customer Directory</h2>
           <input type="text" id="searchCust" class="search-input" placeholder="Search customers by name or phone..." style="width:100%; margin-bottom: 14px;" onkeyup="filterCustomersSearch()">
           <div class="table-container">
             <table id="custTable">
-              <thead><tr><th>Customer</th><th>Phone</th><th>Orders</th><th>Total Business</th><th>Outstanding</th><th>Contact &amp; Actions</th></tr></thead>
-              <tbody id="custBody"><tr><td colspan="6" class="empty-state">No customers recorded yet.</td></tr></tbody>
+              <thead><tr><th style="width:45px;">#</th><th>Customer</th><th>Phone</th><th>Orders</th><th>Total Business</th><th>Outstanding</th><th>Contact &amp; Actions</th></tr></thead>
+              <tbody id="custBody"><tr><td colspan="7" class="empty-state">No customers recorded yet.</td></tr></tbody>
             </table>
           </div>
           <div id="customersPagination"></div>
@@ -1053,10 +1052,11 @@
               <button class="page-btn" onclick="switchTab('dashboard', document.getElementById('tab-btn-dash'))" style="margin-bottom:8px; font-size:11px;">&larr; Back to Analytics</button>
               <h2 class="card-title" style="margin:0;">Cash in Hand &amp; Bank Vouchers</h2>
             </div>
-            <button class="add-btn" style="background:#8b5cf6;" onclick="toggleVoucherForm()">+ Record Bank Deposit</button>
+            <!-- BUTTON RENAMED TO Add voucher -->
+            <button class="add-btn" style="background:#8b5cf6;" onclick="toggleVoucherForm()">Add voucher</button>
           </div>
 
-          <!-- RECONCILIATION SUMMARY BOXES (STACKS ON MOBILE) -->
+          <!-- RECONCILIATION SUMMARY BOXES -->
           <div class="voucher-summary-grid">
             <div class="v-box" style="border-top:3px solid var(--slate-900); padding:16px;">
               <label>Net Revenue Collected</label>
@@ -1724,7 +1724,7 @@
       showToast("Ledger exported as CSV.", "success");
     }
 
-    /* 2. PENDING ORDERS PAGINATION */
+    /* 2. PENDING ORDERS PAGINATION (WITH SERIAL NUMBERS) */
     function filterPendingSearch() {
       let search = (document.getElementById('searchP')?.value || '').toUpperCase();
       filteredPendingList = globalOrders.filter(o => 
@@ -1740,8 +1740,10 @@
       const paginated = paginateArray(filteredPendingList, page, PAGE_SIZE);
       let pBody = '';
 
-      paginated.items.forEach(o => {
+      paginated.items.forEach((o, idx) => {
+        let sNo = (paginated.page - 1) * PAGE_SIZE + (idx + 1);
         pBody += `<tr>
+          <td><span class="num" style="color:var(--slate-400); font-weight:700; font-size:11.5px;">${sNo}</span></td>
           <td><strong>${o.orderNumber}</strong></td><td>${o.customerName}</td><td>${o.dueDate} ${dueBadge(o.dueDate)}</td><td class="num" style="color:var(--danger); font-weight:bold;">${fmtRs(o.balance)}</td>
           <td>
             <div class="action-btns">
@@ -1755,11 +1757,11 @@
         </tr>`;
       });
 
-      document.getElementById('pBody').innerHTML = pBody || '<tr><td colspan="5" class="empty-state">No pending orders. All caught up!</td></tr>';
+      document.getElementById('pBody').innerHTML = pBody || '<tr><td colspan="6" class="empty-state">No pending orders. All caught up!</td></tr>';
       renderPaginationBar("pendingPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderPendingTable");
     }
 
-    /* 3. COMPLETED ORDERS PAGINATION */
+    /* 3. COMPLETED ORDERS PAGINATION (WITH SERIAL NUMBERS) */
     function filterCompletedSearch() {
       let search = (document.getElementById('searchC')?.value || '').toUpperCase();
       filteredCompletedList = globalOrders.filter(o => 
@@ -1775,8 +1777,10 @@
       const paginated = paginateArray(filteredCompletedList, page, PAGE_SIZE);
       let cBody = '';
 
-      paginated.items.forEach(o => {
+      paginated.items.forEach((o, idx) => {
+        let sNo = (paginated.page - 1) * PAGE_SIZE + (idx + 1);
         cBody += `<tr>
+          <td><span class="num" style="color:var(--slate-400); font-weight:700; font-size:11.5px;">${sNo}</span></td>
           <td><strong>${o.orderNumber}</strong></td>
           <td>${o.customerName}</td>
           <td>${o.completedAt}</td>
@@ -1793,11 +1797,11 @@
         </tr>`;
       });
 
-      document.getElementById('cBody').innerHTML = cBody || '<tr><td colspan="6" class="empty-state">No completed orders yet.</td></tr>';
+      document.getElementById('cBody').innerHTML = cBody || '<tr><td colspan="7" class="empty-state">No completed orders yet.</td></tr>';
       renderPaginationBar("completedPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderCompletedTable");
     }
 
-    /* 4. CUSTOMER DIRECTORY PAGINATION */
+    /* 4. CUSTOMER DIRECTORY PAGINATION (WITH SERIAL NUMBERS) */
     function filterCustomersSearch() {
       renderCustomers();
     }
@@ -1828,10 +1832,11 @@
       const paginated = paginateArray(filteredCustomerList, page, PAGE_SIZE);
       let rows = '';
 
-      paginated.items.forEach(c => {
+      paginated.items.forEach((c, idx) => {
+        let sNo = (paginated.page - 1) * PAGE_SIZE + (idx + 1);
         let outStyle = c.outstanding > 0 ? 'color:var(--danger); font-weight:800;' : 'color:var(--success); font-weight:700;';
         let outText = c.outstanding > 0 ? fmtRs(c.outstanding) : 'Clear';
-        let phoneCell = c.phone ? `<span class="num" style="font-size:12px;">${c.phone}</span>` : '<span style="color:var(--slate-400);">&mdash;</span>';
+        let phoneCell = c.phone ? `<span class="num" style="font-size:12px;">${c.phone}</span>` : '<span style="color:var(--slate-400);">-</span>';
 
         let orderBadges = c.orders.map(ord => 
           `<button class="action-btn btn-view" style="padding: 2px 7px; margin: 2px 2px 2px 0; font-size:11px;" onclick="openViewModal('${ord}')">${ord}</button>`
@@ -1847,6 +1852,7 @@
         `;
 
         rows += `<tr>
+          <td><span class="num" style="color:var(--slate-400); font-weight:700; font-size:11.5px;">${sNo}</span></td>
           <td style="font-weight:700;">${c.name}</td>
           <td>${phoneCell}</td>
           <td><div style="display:flex; flex-wrap:wrap; align-items:center;">${orderBadges}</div></td>
@@ -1856,7 +1862,7 @@
         </tr>`;
       });
 
-      document.getElementById('custBody').innerHTML = rows || '<tr><td colspan="6" class="empty-state">No customers recorded yet.</td></tr>';
+      document.getElementById('custBody').innerHTML = rows || '<tr><td colspan="7" class="empty-state">No customers recorded yet.</td></tr>';
       renderPaginationBar("customersPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderCustomersTable");
     }
 
@@ -2315,7 +2321,7 @@
       openConfirmModal(
         "Complete Order", `Are you sure you want to mark ${orderId} as Completed?`, "Yes, Complete", "var(--success)",
         async function() {
-          document.getElementById('pBody').innerHTML = '<tr><td colspan="5" class="empty-state">Updating status...</td></tr>';
+          document.getElementById('pBody').innerHTML = '<tr><td colspan="6" class="empty-state">Updating status...</td></tr>';
           try { await apiCall("markOrderCompleted", { orderId: orderId }); showToast(`${orderId} marked as Completed.`, "success"); fetchOrders(); }
           catch (err) { showToast("Failed to complete order: " + err.message, "error"); fetchOrders(); }
         }
@@ -2326,8 +2332,8 @@
       openConfirmModal(
         "Delete Order", `WARNING: Are you sure you want to permanently delete ${orderId}?`, "Yes, Delete", "var(--danger)",
         async function() {
-          document.getElementById('pBody').innerHTML = '<tr><td colspan="5" class="empty-state">Deleting...</td></tr>';
-          document.getElementById('cBody').innerHTML = '<tr><td colspan="6" class="empty-state">Deleting...</td></tr>';
+          document.getElementById('pBody').innerHTML = '<tr><td colspan="6" class="empty-state">Deleting...</td></tr>';
+          document.getElementById('cBody').innerHTML = '<tr><td colspan="7" class="empty-state">Deleting...</td></tr>';
           try { await apiCall("deleteOrder", { orderId: orderId }); showToast(`${orderId} permanently deleted.`, "success"); fetchOrders(); }
           catch (err) { showToast("Failed to delete order: " + err.message, "error"); fetchOrders(); }
         }
