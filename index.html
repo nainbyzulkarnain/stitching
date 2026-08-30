@@ -3,7 +3,9 @@
 <head>
   <base target="_top">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- CHART.JS -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -18,21 +20,19 @@
       --text: #0f172a; 
       --muted: #64748b;
       --border: #cbd5e1; 
-      --border-subtle: #e2e8f0;
       --success: #059669; 
       --success-bg: #ecfdf5;
       --danger: #dc2626; 
       --danger-bg: #fef2f2;
       --warning: #ea580c;
       --warning-bg: #fff7ed;
-      --purple: #7c3aed;
-      --purple-bg: #f5f3ff;
-      --radius-sm: 6px;
-      --radius: 8px;
-      --radius-lg: 12px;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-      --shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.06);
-      --shadow-lg: 0 12px 28px -6px rgba(15, 23, 42, 0.1);
+      --radius-sm: 4px;
+      --radius: 6px;
+      --radius-lg: 8px;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+      --shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.08);
+      --shadow-accent: 0 4px 16px -2px rgba(234, 88, 12, 0.25);
+      --shadow-lg: 0 12px 28px -6px rgba(15, 23, 42, 0.12);
     }
     
     * { box-sizing: border-box; }
@@ -47,10 +47,11 @@
       -webkit-tap-highlight-color: transparent;
     }
     
+    /* ELEGANT UNIFIED HEADER */
     header { 
       background: var(--brand); 
       color: white; 
-      padding: 12px 28px; 
+      padding: 12px 24px; 
       display: flex; 
       justify-content: space-between; 
       align-items: center; 
@@ -98,7 +99,6 @@
     }
 
     .header-right { display: flex; align-items: center; gap: 14px; }
-    .header-time { font-size: 12px; font-weight: 600; color: #94a3b8; letter-spacing: 0.3px; }
     .logout-btn { 
       cursor: pointer; 
       color: #cbd5e1; 
@@ -113,6 +113,7 @@
     }
     .logout-btn:hover { background: rgba(255, 255, 255, 0.2); color: white; }
 
+    /* PERFECTLY CENTERED AUTH SCREEN */
     #login-screen { 
       display: flex; 
       flex-direction: column; 
@@ -124,14 +125,14 @@
       box-sizing: border-box;
     }
     .login-box { 
-      background: #ffffff; 
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); 
       padding: 36px 28px; 
       border-radius: var(--radius-lg); 
-      box-shadow: var(--shadow-lg); 
+      box-shadow: var(--shadow-lg), 0 0 20px var(--brand-accent-glow); 
       width: 100%; 
       max-width: 380px; 
       text-align: center; 
-      border: 1px solid var(--border-subtle); 
+      border: 1px solid var(--border); 
       margin: auto;
     }
     .login-box h2 { color: var(--brand); margin-top: 0; font-size: 22px; font-weight: 800; margin-bottom: 6px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px; }
@@ -153,49 +154,40 @@
     
     .container { 
       max-width: 1380px; 
-      margin: 20px auto; 
-      padding: 0 20px; 
+      margin: 18px auto; 
+      padding: 0 18px; 
     }
     
+    /* UNIFIED NAVIGATION TAB BUTTONS */
     .nav-tabs { 
-      display: flex; gap: 10px; margin-bottom: 20px; 
-      flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; 
+      display: flex; gap: 8px; margin-bottom: 18px; 
+      flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; 
     }
     .nav-tabs::-webkit-scrollbar { display: none; }
-    .nav-tab-btn { 
-      flex: 0 0 auto; 
+    .nav-tabs button { 
+      flex: 1 1 auto; 
       white-space: nowrap; 
-      padding: 10px 20px; 
-      background: #ffffff; 
-      border: 1px solid var(--border-subtle); 
+      padding: 10px 16px; 
+      background: var(--surface-subtle); 
+      border: 1px solid var(--border); 
       font-weight: 700; 
       color: var(--muted); 
       cursor: pointer; 
       transition: all 0.15s ease; 
-      font-family: inherit; 
+      font-family: 'Plus Jakarta Sans'; 
+      outline: none; 
       border-radius: var(--radius); 
       font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      text-align: center;
       box-shadow: var(--shadow-sm);
     }
-    .nav-tab-btn:hover { color: var(--brand); background: #f8fafc; }
-    .nav-tab-btn.active { 
+    .nav-tabs button:hover { color: var(--brand); background: #e2e8f0; }
+    .nav-tabs button.active { 
       color: white; 
       background: var(--brand); 
       border-color: var(--brand); 
-      box-shadow: var(--shadow); 
+      box-shadow: var(--shadow-sm); 
     }
-    .nav-badge {
-      font-size: 11px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 999px;
-      line-height: 1;
-    }
-    .badge-pend { background: #ffedd5; color: #ea580c; }
-    .badge-comp { background: #d1fae5; color: #059669; }
 
     .tab-content { 
       display: none; 
@@ -210,79 +202,12 @@
     }
 
     .main-card { 
-      background: #ffffff; 
-      padding: 24px; 
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); 
+      padding: 22px; 
       border-radius: var(--radius-lg); 
       box-shadow: var(--shadow); 
-      border: 1px solid var(--border-subtle); 
+      border: 1px solid var(--border); 
     }
-
-    .stats-grid-top {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .stats-grid-bottom {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    .metric-card {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 16px 18px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-    }
-    .metric-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .icon-orange { background: #fff7ed; color: #ea580c; }
-    .icon-green { background: #ecfdf5; color: #059669; }
-    .icon-blue { background: #eff6ff; color: #2563eb; }
-    .icon-yellow { background: #fffbeb; color: #d97706; }
-    .icon-slate { background: #f1f5f9; color: #475569; }
-    .icon-purple { background: #f5f3ff; color: #7c3aed; }
-
-    .metric-details { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-    .metric-label { font-size: 10px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .metric-value { font-size: 19px; font-weight: 800; color: var(--brand); line-height: 1.2; white-space: nowrap; }
-    .metric-sub { font-size: 11px; color: #94a3b8; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-    .card-clickable {
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .card-clickable:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-      border-color: var(--purple);
-    }
-
-    .filter-card { 
-      background: var(--surface-subtle); padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--border-subtle); 
-      margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; 
-    }
-    .filter-group { flex: 1; min-width: 130px; display: flex; flex-direction: column; gap: 3px; }
-    .btn-filter-preset { 
-      padding: 8px 14px; background: white; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); 
-      font-weight: 700; font-size: 11.5px; cursor: pointer; color: var(--muted); transition: all 0.15s; 
-    }
-    .btn-filter-preset:hover, .btn-filter-preset.active { background: var(--brand); color: white; border-color: var(--brand); }
 
     .order-subgrid {
       display: grid;
@@ -302,6 +227,19 @@
     }
     input:focus, textarea:focus, select:focus { border-color: var(--brand-accent); background: white; outline: none; box-shadow: 0 0 0 3px var(--brand-accent-glow); }
     
+    /* TARGETED INPUT ERROR HIGHLIGHTING */
+    input.is-invalid, textarea.is-invalid {
+      border-color: var(--danger) !important;
+      background-color: var(--danger-bg) !important;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+      animation: fieldShake 0.25s ease-in-out;
+    }
+    @keyframes fieldShake {
+      0%, 100% { transform: translateX(0); }
+      25%, 75% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+    }
+
     .add-btn { 
       background: var(--brand); color: white; border: none; padding: 10px 14px; border-radius: var(--radius); 
       font-weight: 700; cursor: pointer; height: 39px; transition: all 0.15s; font-size: 12px;
@@ -309,18 +247,18 @@
     .add-btn:hover { background: #1e293b; }
 
     .live-bill { 
-      background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); 
+      background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border); 
       box-shadow: var(--shadow); overflow: hidden; position: sticky; top: 70px; 
     }
     .bill-header { background: var(--brand); color: white; padding: 12px 16px; font-weight: 800; text-align: center; font-size: 13.5px; letter-spacing: 0.5px; }
     .bill-items { padding: 14px; min-height: 130px; max-height: 260px; overflow-y: auto; }
-    .bill-item { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--border-subtle); }
+    .bill-item { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--border); }
     .bill-item-del { color: var(--danger); cursor: pointer; border: none; background: #fee2e2; border-radius: var(--radius-sm); padding: 2px 6px; font-size: 10px; font-weight: bold; transition: 0.15s; }
     .bill-item-del:hover { background: #fca5a5; }
 
-    .bill-totals { padding: 14px; background: var(--surface-subtle); border-top: 1px solid var(--border-subtle); }
+    .bill-totals { padding: 14px; background: var(--surface-subtle); border-top: 1px solid var(--border); }
     .bill-row { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12.5px; font-weight: 600; }
-    .bill-row.grand { font-size: 17px; color: var(--brand-accent); font-weight: 800; border-top: 2px dashed var(--border-subtle); padding-top: 8px; margin-top: 8px; }
+    .bill-row.grand { font-size: 17px; color: var(--brand-accent); font-weight: 800; border-top: 2px dashed var(--border); padding-top: 8px; margin-top: 8px; }
     
     .checkout-btn { 
       width: 100%; background: var(--success); color: white; border: none; padding: 13px; 
@@ -328,6 +266,7 @@
     }
     .checkout-btn:hover { background: #047857; }
 
+    /* FLOATING TOAST SYSTEM */
     #toast-container {
       position: fixed;
       top: 75px;
@@ -341,7 +280,7 @@
     .toast {
       pointer-events: auto;
       min-width: 270px;
-      max-width: 380px;
+      max-width: 360px;
       padding: 12px 14px;
       border-radius: var(--radius);
       background: #ffffff;
@@ -355,17 +294,66 @@
       gap: 8px;
       animation: toastSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .toast.toast-error { border-left-color: var(--danger); color: #991b1b; }
-    .toast.toast-success { border-left-color: var(--success); color: #065f46; }
-    .toast.toast-warning { border-left-color: var(--warning); color: #92400e; }
+    .toast.toast-error { border-left-color: var(--danger); background: #ffffff; color: #991b1b; }
+    .toast.toast-success { border-left-color: var(--success); background: #ffffff; color: #065f46; }
+    .toast.toast-warning { border-left-color: var(--warning); background: #ffffff; color: #92400e; }
     @keyframes toastSlideIn {
       from { transform: translateX(100%); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
 
-    .table-container { overflow-x: auto; width: 100%; border-radius: var(--radius); border: 1px solid var(--border-subtle); background: white; }
+    .modal-overlay { 
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+      background: rgba(17, 24, 39, 0.7); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(3px); 
+    }
+    .modal-content { 
+      background: white; padding: 24px; border-radius: var(--radius-lg); width: 92%; max-width: 480px; 
+      box-shadow: var(--shadow-lg); max-height: 88vh; overflow-y: auto; border: 1px solid var(--border);
+    }
+    .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .btn-next { background: #f1f5f9; color: var(--brand); padding: 11px; border-radius: var(--radius); border: 1px solid var(--border); font-weight: 700; cursor: pointer; font-size: 12.5px; text-align: center; width: 100%; transition: 0.15s; }
+    .btn-next:hover { background: #e2e8f0; }
+    .btn-print { background: var(--brand); color: white; padding: 11px; border-radius: var(--radius); border: none; font-weight: 700; cursor: pointer; font-size: 12.5px; text-align: center; width: 100%; transition: 0.15s; }
+    .btn-print:hover { background: #1e293b; }
+
+    .view-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 12px; }
+    .view-header h2 { margin: 0; font-size: 17px; color: var(--brand); font-weight: 800; }
+    .close-btn { background: #f1f5f9; border: none; width: 28px; height: 28px; border-radius: var(--radius-sm); font-size: 14px; cursor: pointer; color: var(--muted); display: flex; align-items: center; justify-content: center; transition: 0.15s;}
+    .close-btn:hover { background: #e2e8f0; color: var(--brand); }
+
+    .view-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .v-box { background: var(--surface-subtle); padding: 10px 12px; border-radius: var(--radius); border: 1px solid var(--border); }
+    .v-box label { display: block; font-size: 9.5px; margin-bottom: 2px; color: var(--muted); font-weight: 800; text-transform: uppercase;}
+    .v-box div { font-weight: 700; font-size: 13.5px; color: var(--brand); }
+    .v-cart-list { background: var(--surface-subtle); padding: 10px 12px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 12px; max-height: 140px; overflow-y: auto; }
+
+    .filter-card { 
+      background: var(--surface-subtle); padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--border); 
+      margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; 
+    }
+    .filter-group { flex: 1; min-width: 130px; display: flex; flex-direction: column; gap: 3px; }
+    .btn-filter-preset { 
+      padding: 8px 12px; background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); 
+      font-weight: 700; font-size: 11px; cursor: pointer; color: var(--muted); transition: all 0.15s; 
+    }
+    .btn-filter-preset:hover, .btn-filter-preset.active { background: var(--brand); color: white; border-color: var(--brand); }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-bottom: 18px; }
+    .stat-card { 
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); 
+      padding: 12px 14px; 
+      border-radius: var(--radius); 
+      border: 1px solid var(--border); 
+      position: relative; 
+      overflow: hidden; 
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-card label { display: block; font-size: 9.5px; font-weight: 800; color: var(--muted); text-transform: uppercase; margin-bottom: 3px; }
+    .stat-card .value { font-size: 19px; font-weight: 800; color: var(--brand); }
+
+    .table-container { overflow-x: auto; width: 100%; border-radius: var(--radius); border: 1px solid var(--border); background: white; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border-subtle); font-size: 12px; white-space: nowrap; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 12px; white-space: nowrap; }
     th { background: var(--surface-subtle); color: var(--muted); font-weight: 800; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.5px; }
     tr:last-child td { border-bottom: none; }
 
@@ -395,82 +383,73 @@
     .btn-done { background: #d1fae5; color: #047857; } .btn-done:hover { background: #a7f3d0; }
     .btn-del { background: #fee2e2; color: #b91c1c; } .btn-del:hover { background: #fca5a5; }
 
-    .pagination-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 14px;
-      padding: 6px 2px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .pagination-summary { font-size: 11.5px; color: var(--muted); font-weight: 600; }
-    .pagination-pages { display: flex; gap: 4px; align-items: center; }
-    .page-btn {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 11.5px;
-      font-weight: 700;
-      padding: 5px 11px;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .page-btn:hover:not(:disabled) { background: var(--brand); color: white; border-color: var(--brand); }
-    .page-btn.active { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
-    .page-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-    .page-ellipsis { color: var(--muted); font-weight: 700; padding: 0 4px; font-size: 12px; }
-
-    .modal-overlay { 
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-      background: rgba(17, 24, 39, 0.7); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(3px); 
-    }
-    .modal-content { 
-      background: white; padding: 24px; border-radius: var(--radius-lg); width: 92%; max-width: 480px; 
-      box-shadow: var(--shadow-lg); max-height: 88vh; overflow-y: auto; border: 1px solid var(--border-subtle);
-    }
-    .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
-    .btn-next { background: #f1f5f9; color: var(--brand); padding: 11px; border-radius: var(--radius); border: 1px solid var(--border-subtle); font-weight: 700; cursor: pointer; font-size: 12.5px; text-align: center; width: 100%; transition: 0.15s; }
-    .btn-next:hover { background: #e2e8f0; }
-    .btn-print { background: var(--brand); color: white; padding: 11px; border-radius: var(--radius); border: none; font-weight: 700; cursor: pointer; font-size: 12.5px; text-align: center; width: 100%; transition: 0.15s; }
-    .btn-print:hover { background: #1e293b; }
-
-    .view-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px; margin-bottom: 12px; }
-    .view-header h2 { margin: 0; font-size: 17px; color: var(--brand); font-weight: 800; }
-    .close-btn { background: #f1f5f9; border: none; width: 28px; height: 28px; border-radius: var(--radius-sm); font-size: 14px; cursor: pointer; color: var(--muted); display: flex; align-items: center; justify-content: center; transition: 0.15s;}
-    .close-btn:hover { background: #e2e8f0; color: var(--brand); }
-
-    .view-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-    .v-box { background: var(--surface-subtle); padding: 10px 12px; border-radius: var(--radius); border: 1px solid var(--border-subtle); }
-    .v-box label { display: block; font-size: 9.5px; margin-bottom: 2px; color: var(--muted); font-weight: 800; text-transform: uppercase;}
-    .v-box div { font-weight: 700; font-size: 13.5px; color: var(--brand); }
-    .v-cart-list { background: var(--surface-subtle); padding: 10px 12px; border-radius: var(--radius); border: 1px solid var(--border-subtle); margin-bottom: 12px; max-height: 140px; overflow-y: auto; }
-
-    @media screen and (max-width: 1024px) {
-      .stats-grid-top { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid-bottom { grid-template-columns: repeat(2, 1fr); }
-    }
+    /* MOBILE RESPONSIVE BREAKPOINTS */
     @media screen and (max-width: 768px) {
       header { padding: 10px 14px; }
       header h1 { font-size: 15px; }
       .brand-zul { font-size: 23px; }
       .by-text { font-size: 11px; margin: 0 2px; }
-      .header-time { display: none; }
+      
+      .system-tag-green { 
+        font-size: 9px; 
+        padding: 3px 8px; 
+        display: flex !important;
+      }
+      .pulse-dot { width: 5px; height: 5px; }
 
-      .container { padding: 0 12px; margin: 12px auto; }
-      .main-card { padding: 16px 12px; }
+      .container { padding: 0 10px; margin: 12px auto; }
+      .main-card { padding: 14px 10px; }
       .order-subgrid { grid-template-columns: 1fr; gap: 14px; }
       .live-bill { position: static; }
 
-      .stats-grid-top { grid-template-columns: 1fr; }
-      .stats-grid-bottom { grid-template-columns: 1fr; }
+      .nav-tabs { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 6px; 
+        border-bottom: none; 
+        padding-bottom: 0; 
+        margin-bottom: 14px; 
+      }
+      .nav-tabs button { 
+        width: 100%; 
+        text-align: center; 
+        background: var(--surface-subtle); 
+        border: 1px solid var(--border); 
+        border-radius: var(--radius); 
+        padding: 10px 6px; 
+        font-size: 11.5px; 
+        font-weight: 700;
+        color: var(--muted);
+        box-shadow: var(--shadow-sm);
+      }
+      .nav-tabs button.active { 
+        background: var(--brand); 
+        color: white; 
+        border-color: var(--brand); 
+        box-shadow: var(--shadow-sm); 
+      }
 
       .form-row { grid-template-columns: 1fr; gap: 10px; margin-bottom: 10px; }
       .suit-inputs { grid-template-columns: 1.2fr 1fr 1fr 0.8fr; }
+      .add-btn { grid-column: 1 / -1; height: 39px; margin-top: 2px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    }
+
+    @media screen and (max-width: 480px) {
+      header { padding: 8px 10px; }
+      header h1 { font-size: 13.5px; }
+      .brand-zul { font-size: 19px; }
+      .system-tag-green { font-size: 8.5px; padding: 2px 6px; }
+      
+      .login-box { padding: 22px 14px; border-radius: var(--radius-lg); }
+      .stats-grid { grid-template-columns: 1fr; }
+      .filter-card { flex-direction: column; align-items: stretch; }
+      .suit-inputs { grid-template-columns: 1fr 1fr; }
       .add-btn { grid-column: 1 / -1; }
-      .pagination-bar { flex-direction: column; align-items: center; }
+      .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+      .action-btn { justify-content: center; }
+      .modal-content { padding: 16px; }
+      .modal-actions { grid-template-columns: 1fr; }
     }
 
     #receipt-area { display: none; }
@@ -496,8 +475,10 @@
 </head>
 <body>
 
+  <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toast-container"></div>
 
+  <!-- UNIFIED HEADER -->
   <header>
     <div class="header-brand">
       <h1>
@@ -510,11 +491,11 @@
       </div>
     </div>
     <div class="header-right">
-      <div class="header-time" id="liveHeaderTime"></div>
       <button class="logout-btn" id="headerLogoutBtn" style="display:none;" onclick="logout()">Logout</button>
     </div>
   </header>
 
+  <!-- AUTHENTICATION SCREEN -->
   <div id="login-screen">
     <div class="login-box">
       <h2>
@@ -533,28 +514,18 @@
     </div>
   </div>
 
+  <!-- MAIN APPLICATION CONTENT -->
   <div id="app-content">
     <div class="container" id="main-ui">
-
+      <!-- NAVIGATION BUTTON TABS -->
       <div class="nav-tabs">
-        <button id="tab-btn-dash" class="nav-tab-btn active" onclick="switchTab('dashboard', this)">
-          Analytics & Reports
-        </button>
-        <button id="tab-btn-create" class="nav-tab-btn" onclick="switchTab('newOrder', this)">
-          Create Order
-        </button>
-        <button id="tab-btn-pend" class="nav-tab-btn" onclick="switchTab('pending', this)">
-          Pending <span class="nav-badge badge-pend" id="nav-count-pending">0</span>
-        </button>
-        <button id="tab-btn-comp" class="nav-tab-btn" onclick="switchTab('completed', this)">
-          Completed <span class="nav-badge badge-comp" id="nav-count-completed">0</span>
-        </button>
-        <button id="tab-btn-cust" class="nav-tab-btn" onclick="switchTab('customersPage', this)">
-          Customers
-        </button>
+        <button id="tab-btn-dash" class="active" onclick="switchTab('dashboard', this)">Analytics & Reports</button>
+        <button id="tab-btn-create" onclick="switchTab('newOrder', this)">Create Order</button>
+        <button id="tab-btn-pend" onclick="switchTab('pending', this)">Pending Orders</button>
+        <button id="tab-btn-comp" onclick="switchTab('completed', this)">Completed Orders</button>
       </div>
 
-      <!-- ANALYTICS TAB -->
+      <!-- ANALYTICS & REPORTS TAB -->
       <div id="dashboard" class="tab-content active">
         <div class="main-card">
           <h2 style="margin-top:0; color: var(--brand); font-weight: 800; font-size: 18px; margin-bottom: 14px;">Financial Overview & Analytics</h2>
@@ -568,7 +539,7 @@
               <label>To Date</label>
               <input type="date" id="dashEnd" onchange="runAnalyticsFilter()">
             </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <div style="display:flex; gap:5px; flex-wrap:wrap;">
               <button class="btn-filter-preset" onclick="setFilterPreset('today')">Today</button>
               <button class="btn-filter-preset" onclick="setFilterPreset('week')">This Week</button>
               <button class="btn-filter-preset active" id="btn-month-preset" onclick="setFilterPreset('month')">This Month</button>
@@ -576,97 +547,70 @@
             </div>
           </div>
 
-          <div class="stats-grid-top">
-            <div class="metric-card">
-              <div class="metric-icon icon-orange">$</div>
-              <div class="metric-details">
-                <span class="metric-label">PERIOD REVENUE</span>
-                <span class="metric-value" id="dash-rev-total">Rs. 0</span>
-                <span class="metric-sub">Advances + Balances paid</span>
-              </div>
+          <!-- LOGICAL FINANCIAL CARDS PROGRESSION -->
+          <div class="stats-grid">
+            <!-- 1. FINAL BALANCES PAID -->
+            <div class="stat-card" style="border-left: 4px solid #2563eb;">
+              <label>Final Balances Paid</label>
+              <div class="value" id="dash-rev-bal" style="color: #2563eb;">Rs. 0</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:2px;">Collected upon delivery</div>
             </div>
 
-            <div class="metric-card">
-              <div class="metric-icon icon-green">🛡️</div>
-              <div class="metric-details">
-                <span class="metric-label">ADVANCES RECEIVED</span>
-                <span class="metric-value" id="dash-rev-adv">Rs. 0</span>
-                <span class="metric-sub">Initial down payments</span>
-              </div>
+            <!-- 2. ADVANCES RECEIVED -->
+            <div class="stat-card" style="border-left: 4px solid var(--success);">
+              <label>Advances Received</label>
+              <div class="value" id="dash-rev-adv" style="color: var(--success);">Rs. 0</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:2px;">Initial order down payments</div>
             </div>
 
-            <div class="metric-card">
-              <div class="metric-icon icon-blue">⏱️</div>
-              <div class="metric-details">
-                <span class="metric-label">FINAL BALANCES</span>
-                <span class="metric-value" id="dash-rev-bal">Rs. 0</span>
-                <span class="metric-sub">Collected on delivery</span>
-              </div>
+            <!-- 3. PERIOD REVENUE COLLECTED -->
+            <div class="stat-card" style="border-left: 4px solid var(--brand-accent);">
+              <label>Period Revenue Collected</label>
+              <div class="value" id="dash-rev-total" style="color: var(--brand-accent);">Rs. 0</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:2px;">Advances + Final Balances paid</div>
             </div>
 
-            <div class="metric-card">
-              <div class="metric-icon icon-yellow">⏳</div>
-              <div class="metric-details">
-                <span class="metric-label">OUTSTANDING DUE</span>
-                <span class="metric-value" id="dash-uncollected">Rs. 0</span>
-                <span class="metric-sub">Receivable from pending</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="stats-grid-bottom">
-            <div class="metric-card">
-              <div class="metric-icon icon-slate">🛍️</div>
-              <div class="metric-details">
-                <span class="metric-label">BOOKED VOLUME</span>
-                <span class="metric-value" id="dash-booked-val">Rs. 0</span>
-                <span class="metric-sub">Face value of orders</span>
-              </div>
+            <!-- 4. OUTSTANDING BALANCE -->
+            <div class="stat-card" style="border-left: 4px solid var(--warning);">
+              <label>Outstanding Balance</label>
+              <div class="value" id="dash-uncollected" style="color: var(--warning);">Rs. 0</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:2px;">Receivable across pending orders</div>
             </div>
 
-            <div class="metric-card">
-              <div class="metric-icon icon-slate">📦</div>
-              <div class="metric-details">
-                <span class="metric-label">ORDERS STATUS</span>
-                <span class="metric-value" style="font-size:16px;">
-                  <span id="dash-count-pend" style="color:var(--warning)">0 Pending</span> | 
-                  <span id="dash-count-comp" style="color:var(--success)">0 Done</span>
-                </span>
-                <span class="metric-sub">All-time order breakdown</span>
-              </div>
+            <!-- 5. BOOKED ORDER VOLUME -->
+            <div class="stat-card">
+              <label>Booked Order Volume</label>
+              <div class="value" id="dash-booked-val">Rs. 0</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:2px;">Face value of orders in range</div>
             </div>
 
-            <div class="metric-card card-clickable" onclick="openCashInHandPage()" title="Click to view bank deposit vouchers">
-              <div class="metric-icon icon-purple">💵</div>
-              <div class="metric-details">
-                <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
-                  <span class="metric-label" style="color:var(--purple);">CASH IN HAND</span>
-                  <span style="font-size:10px; color:var(--purple); font-weight:800;">View Vouchers →</span>
-                </div>
-                <span class="metric-value" id="dash-cash-in-hand" style="color:var(--purple);">Rs. 0</span>
-                <span class="metric-sub">Net collected minus deposits</span>
+            <!-- 6. ORDERS BREAKDOWN -->
+            <div class="stat-card">
+              <label>Orders Breakdown</label>
+              <div class="value" style="font-size: 15px; margin-top: 3px;">
+                <span id="dash-count-pend" style="color:var(--warning)">0 Pending</span> | 
+                <span id="dash-count-comp" style="color:var(--success)">0 Done</span>
               </div>
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 22px;">
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius); border: 1px solid var(--border-subtle);">
-              <h4 style="margin: 0 0 10px 0; font-size: 11px; font-weight: 800; color: var(--muted); text-transform: uppercase;">Financial Revenue Progress</h4>
+          <!-- VISUAL DIAGRAMS & CHARTS -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 20px;">
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h4 style="margin: 0 0 10px 0; font-size: 11px; font-weight: 800; color: var(--muted); text-transform: uppercase;">Financial Performance Visual</h4>
               <div style="height: 200px; position: relative;">
                 <canvas id="revChart"></canvas>
               </div>
             </div>
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius); border: 1px solid var(--border-subtle);">
-              <h4 style="margin: 0 0 10px 0; font-size: 11px; font-weight: 800; color: var(--muted); text-transform: uppercase;">Order Fulfillment Rate</h4>
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h4 style="margin: 0 0 10px 0; font-size: 11px; font-weight: 800; color: var(--muted); text-transform: uppercase;">Order Ratio Distribution</h4>
               <div style="height: 200px; position: relative;">
                 <canvas id="statusChart"></canvas>
               </div>
             </div>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
-            <h3 style="color: var(--brand); font-size: 13.5px; font-weight: 800; margin:0;">Detailed Date Range Ledger</h3>
-          </div>
+          <h3 style="color: var(--brand); font-size: 13.5px; font-weight: 800; margin-bottom: 10px;">Detailed Date Range Ledger</h3>
           <div class="table-container">
             <table>
               <thead>
@@ -686,11 +630,10 @@
               </tbody>
             </table>
           </div>
-          <div id="analyticsPagination"></div>
         </div>
       </div>
 
-      <!-- CREATE / EDIT ORDER TAB -->
+      <!-- CREATE / EDIT ORDER TAB (WITH QUANTITY SUPPORT) -->
       <div id="newOrder" class="tab-content">
         <div class="order-subgrid">
           <div class="main-card">
@@ -739,147 +682,35 @@
         </div>
       </div>
 
-      <!-- PENDING TAB -->
+      <!-- PENDING ORDERS TAB -->
       <div id="pending" class="tab-content">
         <div class="main-card">
-          <input type="text" id="searchP" placeholder="Search pending orders..." style="width:100%; margin-bottom: 12px;" onkeyup="filterPendingTable()">
+          <input type="text" id="searchP" placeholder="Search pending orders..." style="width:100%; margin-bottom: 12px;" onkeyup="filterTable('pTable', 'searchP')">
           <div class="table-container">
             <table id="pTable">
               <thead><tr><th>Order #</th><th>Customer</th><th>Due Date</th><th>Balance Due</th><th>Actions</th></tr></thead>
               <tbody id="pBody"><tr><td colspan="5" style="text-align:center;">Loading orders...</td></tr></tbody>
             </table>
           </div>
-          <div id="pendingPagination"></div>
         </div>
       </div>
 
-      <!-- COMPLETED TAB -->
+      <!-- COMPLETED ORDERS TAB -->
       <div id="completed" class="tab-content">
         <div class="main-card">
-          <input type="text" id="searchC" placeholder="Search completed orders..." style="width:100%; margin-bottom: 12px;" onkeyup="filterCompletedTable()">
+          <input type="text" id="searchC" placeholder="Search completed orders..." style="width:100%; margin-bottom: 12px;" onkeyup="filterTable('cTable', 'searchC')">
           <div class="table-container">
             <table id="cTable">
               <thead><tr><th>Order #</th><th>Customer</th><th>Delivered At</th><th>Amount Paid</th><th>Status</th><th>Actions</th></tr></thead>
               <tbody id="cBody"><tr><td colspan="6" style="text-align:center;">Loading orders...</td></tr></tbody>
             </table>
           </div>
-          <div id="completedPagination"></div>
         </div>
       </div>
-
-      <!-- CUSTOMERS TAB -->
-      <div id="customersPage" class="tab-content">
-        <div class="main-card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-            <h2 style="margin:0; color:var(--brand); font-size:18px; font-weight:800;">Customer Directory</h2>
-            <span id="cust-count-badge" style="font-size:12px; font-weight:700; color:var(--muted); background:var(--surface-subtle); padding:4px 10px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">0 Customers</span>
-          </div>
-          <input type="text" id="searchCust" placeholder="Search customers by name or phone..." style="width:100%; margin-bottom:12px;" onkeyup="filterCustomersTable()">
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Customer Name</th>
-                  <th>Phone</th>
-                  <th>Total Orders</th>
-                  <th>Lifetime Volume</th>
-                  <th>Pending Balance</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="custTableBody">
-                <tr><td colspan="6" style="text-align:center;">Loading customers...</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div id="customersPagination"></div>
-        </div>
-      </div>
-
-      <!-- CASH IN HAND & VOUCHERS PAGE -->
-      <div id="vouchersPage" class="tab-content">
-        <div class="main-card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
-            <div>
-              <button class="page-btn" onclick="switchTab('dashboard', document.getElementById('tab-btn-dash'))" style="margin-bottom:6px; font-size:11px;">← Back to Analytics</button>
-              <h2 style="margin:0; color:var(--brand); font-size:18px; font-weight:800;">Cash in Hand & Bank Vouchers</h2>
-            </div>
-            <button class="add-btn" style="background:var(--success); height:38px;" onclick="toggleVoucherForm()">+ Record Bank Deposit Voucher</button>
-          </div>
-
-          <div class="stats-grid-bottom" style="margin-bottom:18px;">
-            <div class="metric-card">
-              <div class="metric-icon icon-green">📥</div>
-              <div class="metric-details">
-                <span class="metric-label">GROSS CASH COLLECTED</span>
-                <span class="metric-value" id="v-total-collected" style="color:var(--success);">Rs. 0</span>
-                <span class="metric-sub">Total revenue received</span>
-              </div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-icon icon-orange">🏦</div>
-              <div class="metric-details">
-                <span class="metric-label">TOTAL BANK DEPOSITS</span>
-                <span class="metric-value" id="v-total-deposited" style="color:var(--danger);">Rs. 0</span>
-                <span class="metric-sub">Transferred out to bank</span>
-              </div>
-            </div>
-            <div class="metric-card" style="border:1px solid var(--purple); background:var(--purple-bg);">
-              <div class="metric-icon icon-purple">💵</div>
-              <div class="metric-details">
-                <span class="metric-label" style="color:var(--purple);">NET CASH IN HAND</span>
-                <span class="metric-value" id="v-current-cash" style="color:var(--purple);">Rs. 0</span>
-                <span class="metric-sub">Current register balance</span>
-              </div>
-            </div>
-          </div>
-
-          <div id="voucherFormContainer" style="display:none; background:var(--surface-subtle); padding:16px; border-radius:var(--radius); border:1px solid var(--border-subtle); margin-bottom:16px;">
-            <h3 style="margin-top:0; font-size:14px; font-weight:800; color:var(--brand); margin-bottom:12px;">Save New Bank Deposit Voucher</h3>
-            <div class="form-row">
-              <div class="form-group"><label>Deposit Date</label><input type="date" id="vDate"></div>
-              <div class="form-group"><label>Deposit Amount (Rs.)</label><input type="number" id="vAmount" placeholder="e.g. 5000"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label>Bank Name</label><input type="text" id="vBank" placeholder="e.g. Meezan Bank, HBL, UBL"></div>
-              <div class="form-group"><label>Reference / Slip #</label><input type="text" id="vRef" placeholder="e.g. TRX-9831"></div>
-            </div>
-            <div class="form-group" style="margin-bottom:12px;">
-              <label>Notes</label>
-              <input type="text" id="vNotes" placeholder="Optional details (e.g. Deposited by Zulkarnain)">
-            </div>
-            <div style="display:flex; gap:8px;">
-              <button class="add-btn" style="background:var(--brand);" onclick="submitVoucher()">SAVE VOUCHER</button>
-              <button class="page-btn" onclick="toggleVoucherForm()">Cancel</button>
-            </div>
-          </div>
-
-          <input type="text" id="searchVouchers" placeholder="Search vouchers by Bank, Reference, or ID..." style="width:100%; margin-bottom:12px;" onkeyup="filterVouchersTable()">
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Voucher #</th>
-                  <th>Date</th>
-                  <th>Bank Name</th>
-                  <th>Reference</th>
-                  <th>Amount</th>
-                  <th>Notes</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="vouchersTableBody">
-                <tr><td colspan="7" style="text-align:center;">Loading vouchers...</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div id="vouchersPagination"></div>
-        </div>
-      </div>
-
     </div>
   </div>
 
+  <!-- IN-APP CONFIRMATION MODAL -->
   <div class="modal-overlay" id="confirmModal">
     <div class="modal-content" style="text-align: center; max-width: 400px;">
       <h3 style="color: var(--brand); margin-top: 0; font-size: 19px; font-weight: 800;" id="cm-title">Confirm Action</h3>
@@ -891,11 +722,12 @@
     </div>
   </div>
 
+  <!-- SUCCESS MODAL -->
   <div class="modal-overlay" id="successModal">
     <div class="modal-content" style="text-align: center;">
       <h2 style="color: var(--success); margin-top: 0; font-size: 21px;" id="ms-title">Order Processed!</h2>
       <p style="color: var(--muted); margin-bottom: 16px;">Order <strong id="ms-ord" style="color: var(--brand);"></strong> updated successfully.</p>
-      <div style="background: var(--surface-subtle); padding: 12px; border-radius: var(--radius); text-align: left; font-size: 13px; border: 1px solid var(--border-subtle);">
+      <div style="background: var(--surface-subtle); padding: 12px; border-radius: var(--radius); text-align: left; font-size: 13px; border: 1px solid var(--border);">
         <div style="display:flex; justify-content:space-between; margin-bottom: 5px;"><span>Total Amount:</span> <strong id="ms-tot"></strong></div>
         <div style="display:flex; justify-content:space-between; margin-bottom: 5px;"><span>Advance Paid:</span> <strong id="ms-adv"></strong></div>
         <div style="display:flex; justify-content:space-between; font-weight:bold; color:var(--brand-accent);"><span>Balance Due:</span> <strong id="ms-bal"></strong></div>
@@ -907,6 +739,7 @@
     </div>
   </div>
 
+  <!-- VIEW ORDER MODAL -->
   <div class="modal-overlay" id="viewModal">
     <div class="modal-content">
       <div class="view-header">
@@ -933,6 +766,7 @@
     </div>
   </div>
 
+  <!-- ELEGANT THERMAL RECEIPT -->
   <div id="receipt-area">
     <div class="r-center">
       <div class="r-brand">NAIN by ZULKARNAIN</div>
@@ -969,45 +803,24 @@
   </div>
 
   <script>
-    let API_URL = localStorage.getItem("nain_api_url") || "";
+    /* OPTIONAL API URL FOR EXTERNAL HOSTING (e.g. GITHUB PAGES / WORDPRESS) */
+    const API_URL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
 
     let authU = sessionStorage.getItem("pos_user") || "";
     let authP = sessionStorage.getItem("pos_pass") || "";
     let cart = [];
     let globalOrders = [];
-    let globalDeposits = [];
-    let filteredAnalyticsLedger = [];
     let editingOrderId = null;
     let editingSuitIndex = null;
     let revChartInstance = null;
     let statusChartInstance = null;
     let pendingConfirmAction = null;
 
-    const PAGE_SIZE = 10;
-    let currentPageState = {
-      analytics: 1,
-      pending: 1,
-      completed: 1,
-      customers: 1,
-      vouchers: 1
-    };
-
     window.onload = function() {
-      startLiveClock();
       if(authU && authP) unlockApp();
     };
 
-    function startLiveClock() {
-      function updateTime() {
-        const now = new Date();
-        const opts = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
-        const el = document.getElementById('liveHeaderTime');
-        if (el) el.innerText = now.toLocaleString('en-GB', opts).replace(',', '');
-      }
-      updateTime();
-      setInterval(updateTime, 30000);
-    }
-
+    /* HYBRID API CONTROLLER (SUPPORTS BOTH GOOGLE APPS SCRIPT AND FETCH API) */
     async function apiCall(action, extraData = {}) {
       if (typeof google !== "undefined" && google.script && google.script.run) {
         return new Promise((resolve, reject) => {
@@ -1021,81 +834,20 @@
           else if (action === "updateExistingOrder") runner.updateExistingOrder(extraData.orderId, extraData.data, authU, authP);
           else if (action === "markOrderCompleted") runner.markOrderCompleted(extraData.orderId, authU, authP);
           else if (action === "deleteOrder") runner.deleteOrder(extraData.orderId, authU, authP);
-          else if (action === "getBankDeposits") runner.getBankDeposits(authU, authP);
-          else if (action === "saveBankDeposit") runner.saveBankDeposit(extraData.data, authU, authP);
-          else if (action === "deleteBankDeposit") runner.deleteBankDeposit(extraData.depositId, authU, authP);
-          else reject(new Error("Unknown action: " + action));
+          else reject(new Error("Unknown action"));
         });
       }
-
-      if (!API_URL) {
-        let entered = prompt("Enter your Google Apps Script Web App URL once to connect database:");
-        if (entered && entered.startsWith("http")) {
-          localStorage.setItem("nain_api_url", entered.trim());
-          API_URL = entered.trim();
-        } else {
-          throw new Error("API URL required to connect external host.");
-        }
-      }
-
+      
       const payload = { action, user: authU, pass: authP, ...extraData };
       const res = await fetch(API_URL, {
         method: "POST",
         body: JSON.stringify(payload)
       });
-      
-      const rawText = await res.text();
-      let json;
-      try {
-        json = JSON.parse(rawText);
-      } catch(e) {
-        localStorage.removeItem("nain_api_url");
-        throw new Error("Invalid response. Re-enter your exact Google Script /exec Web App URL.");
+      const json = await res.json();
+      if (json.status === "error") {
+        throw new Error(json.message);
       }
-
-      if (json.status === "error") throw new Error(json.message);
       return json.data;
-    }
-
-    function paginateArray(array, page, pageSize = PAGE_SIZE) {
-      const totalPages = Math.ceil(array.length / pageSize) || 1;
-      const validPage = Math.min(Math.max(1, page), totalPages);
-      const start = (validPage - 1) * pageSize;
-      return {
-        items: array.slice(start, start + pageSize),
-        page: validPage,
-        totalPages: totalPages,
-        totalItems: array.length,
-        startIndex: array.length ? start + 1 : 0,
-        endIndex: Math.min(start + pageSize, array.length)
-      };
-    }
-
-    function renderPaginationBar(containerId, currentPage, totalPages, totalItems, startIndex, endIndex, callbackFnName) {
-      const el = document.getElementById(containerId);
-      if(!el) return;
-      if(totalPages <= 1 && totalItems <= PAGE_SIZE) {
-        el.innerHTML = totalItems > 0 ? `<div class="pagination-bar"><div class="pagination-summary">Showing all ${totalItems} records</div></div>` : "";
-        return;
-      }
-
-      let html = `<div class="pagination-bar">`;
-      html += `<div class="pagination-summary">Showing ${startIndex}-${endIndex} of ${totalItems} records</div>`;
-      html += `<div class="pagination-pages">`;
-      html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="${callbackFnName}(${currentPage - 1})">« Prev</button>`;
-
-      for (let i = 1; i <= totalPages; i++) {
-        if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
-          html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="${callbackFnName}(${i})">${i}</button>`;
-        } else if (i === currentPage - 2 || i === currentPage + 2) {
-          html += `<span class="page-ellipsis">...</span>`;
-        }
-      }
-
-      html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="${callbackFnName}(${currentPage + 1})">Next »</button>`;
-      html += `</div></div>`;
-
-      el.innerHTML = html;
     }
 
     function openConfirmModal(title, message, btnText, btnColor, onConfirmCallback) {
@@ -1126,12 +878,29 @@
       toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
       
       container.appendChild(toast);
+      
       setTimeout(() => {
         toast.style.opacity = '0';
         toast.style.transform = 'translateX(100%)';
         toast.style.transition = 'all 0.25s ease';
         setTimeout(() => toast.remove(), 250);
       }, 3500);
+    }
+
+    function clearInputErrors() {
+      document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    }
+
+    function highlightErrorField(elementId) {
+      let el = document.getElementById(elementId);
+      if(el) {
+        el.classList.add('is-invalid');
+        el.focus();
+        el.addEventListener('input', function handleInput() {
+          el.classList.remove('is-invalid');
+          el.removeEventListener('input', handleInput);
+        });
+      }
     }
 
     function togglePass() {
@@ -1149,8 +918,7 @@
         showToast("Please enter Username and Password.", "warning");
         return;
       }
-      btn.innerText = "VERIFYING..."; 
-      document.getElementById('login-error').style.display = 'none';
+      btn.innerText = "VERIFYING..."; document.getElementById('login-error').style.display = 'none';
       
       try {
         authU = u; authP = p;
@@ -1161,7 +929,6 @@
       } catch(err) {
         btn.innerText = "SECURE LOGIN"; 
         document.getElementById('login-error').style.display = 'block';
-        showToast(err.message, "error");
       }
     }
 
@@ -1173,33 +940,28 @@
       switchTab('dashboard', document.getElementById('tab-btn-dash'));
       setFilterPreset('month');
       fetchOrders();
-      fetchDeposits();
     }
 
     function logout() { sessionStorage.clear(); location.reload(); }
-    function checkAuthError(err) { if(err.message && err.message.includes("UNAUTHORIZED")) logout(); else showToast(err.message, "error"); }
+    function checkAuthError(err) { if(err.message && err.message.includes("UNAUTHORIZED")) logout(); else showToast("Error: " + err.message, "error"); }
 
     function switchTab(tabId, btn) {
+      clearInputErrors();
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
       
       let targetTab = document.getElementById(tabId);
       if(targetTab) targetTab.classList.add('active');
       if(btn) btn.classList.add('active');
 
       if(tabId === 'dashboard') runAnalyticsFilter();
-      if(tabId === 'pending') renderPendingTable(1);
-      if(tabId === 'completed') renderCompletedTable(1);
-      if(tabId === 'customersPage') renderCustomersTable(1);
-      if(tabId === 'vouchersPage') {
-        fetchDeposits();
-        renderVouchersTable(1);
-      }
+      if(tabId !== 'newOrder' && tabId !== 'dashboard') fetchOrders();
     }
 
     function parseDateSafely(dateStr) {
       if(!dateStr) return new Date(0);
       let ds = String(dateStr).split(' ')[0]; 
+      
       if(ds.includes('/')) {
         let parts = ds.split('/');
         if(parts.length === 3) return new Date(parts[2], parts[1] - 1, parts[0]);
@@ -1223,6 +985,7 @@
     function setFilterPreset(preset) {
       document.querySelectorAll('.btn-filter-preset').forEach(b => b.classList.remove('active'));
       let today = new Date();
+      
       if(preset === 'today') {
         document.getElementById('dashStart').value = formatDateForInput(today);
         document.getElementById('dashEnd').value = formatDateForInput(today);
@@ -1250,10 +1013,10 @@
         revChartInstance = new Chart(ctx1, {
           type: 'bar',
           data: {
-            labels: ['Booked Vol', 'Collected', 'Outstanding'],
+            labels: ['Booked Value', 'Net Collected', 'Outstanding'],
             datasets: [{
               data: [bookedVal, totalCollected, uncollected],
-              backgroundColor: ['#0f172a', '#059669', '#ea580c'],
+              backgroundColor: ['#111827', '#059669', '#ea580c'],
               borderRadius: 6
             }]
           },
@@ -1261,7 +1024,7 @@
             responsive: true,
             maintainAspectRatio: false,
             plugins: { legend: { display: false } },
-            scales: { y: { beginAtZero: true, grid: { color: '#f1f5f9' } }, x: { grid: { display: false } } }
+            scales: { y: { beginAtZero: true, grid: { color: '#e2e8f0' } }, x: { grid: { display: false } } }
           }
         });
       }
@@ -1292,12 +1055,13 @@
     function runAnalyticsFilter() {
       let startVal = document.getElementById('dashStart').value;
       let endVal = document.getElementById('dashEnd').value;
+      
       let startDate = startVal ? new Date(startVal + 'T00:00:00') : null;
       let endDate = endVal ? new Date(endVal + 'T23:59:59') : null;
 
       let revAdv = 0, revBal = 0, bookedVal = 0, uncollected = 0;
       let pCount = 0, cCount = 0;
-      filteredAnalyticsLedger = [];
+      let tableRows = '';
 
       globalOrders.forEach(o => {
         let created = parseDateSafely(o.createdAt);
@@ -1321,325 +1085,75 @@
         revBal += balInFilter;
 
         if(inCreatedRange || inCompletedRange) {
-          filteredAnalyticsLedger.push({
-            orderNumber: o.orderNumber,
-            customerName: o.customerName,
-            createdAt: o.createdAt,
-            status: o.status,
-            total: tot,
-            advInFilter: advInFilter,
-            balInFilter: balInFilter,
-            netCollected: orderCollectedInRange
-          });
+          let statusBadge = o.status === 'Completed' 
+            ? '<span class="badge-paid">Completed</span>' 
+            : '<span class="badge-pending">Pending</span>';
+
+          tableRows += `<tr>
+            <td><strong>${o.orderNumber}</strong></td>
+            <td>${o.customerName}</td>
+            <td>${o.createdAt}</td>
+            <td>${statusBadge}</td>
+            <td>Rs. ${tot}</td>
+            <td style="color:var(--success); font-weight:700;">+ Rs. ${advInFilter}</td>
+            <td style="color:#2563eb; font-weight:700;">+ Rs. ${balInFilter}</td>
+            <td style="font-weight:bold; color:var(--brand-accent);">Rs. ${orderCollectedInRange}</td>
+          </tr>`;
         }
       });
 
       let totalCollected = revAdv + revBal;
-      document.getElementById('dash-rev-total').innerText = 'Rs. ' + totalCollected.toLocaleString();
-      document.getElementById('dash-rev-adv').innerText = 'Rs. ' + revAdv.toLocaleString();
-      document.getElementById('dash-rev-bal').innerText = 'Rs. ' + revBal.toLocaleString();
-      document.getElementById('dash-uncollected').innerText = 'Rs. ' + uncollected.toLocaleString();
-      document.getElementById('dash-booked-val').innerText = 'Rs. ' + bookedVal.toLocaleString();
+      document.getElementById('dash-rev-total').innerText = 'Rs. ' + totalCollected;
+      document.getElementById('dash-rev-adv').innerText = 'Rs. ' + revAdv;
+      document.getElementById('dash-rev-bal').innerText = 'Rs. ' + revBal;
+      document.getElementById('dash-uncollected').innerText = 'Rs. ' + uncollected;
+      document.getElementById('dash-booked-val').innerText = 'Rs. ' + bookedVal;
       document.getElementById('dash-count-pend').innerText = pCount + ' Pending';
       document.getElementById('dash-count-comp').innerText = cCount + ' Done';
-
-      document.getElementById('nav-count-pending').innerText = pCount;
-      document.getElementById('nav-count-completed').innerText = cCount;
-
-      renderAnalyticsLedger(1);
-      renderAnalyticsCharts(bookedVal, totalCollected, uncollected, pCount, cCount);
-      updateCashInHandCalculations();
-    }
-
-    function renderAnalyticsLedger(page = 1) {
-      currentPageState.analytics = page;
-      const paginated = paginateArray(filteredAnalyticsLedger, page, PAGE_SIZE);
-      let tableRows = '';
-
-      paginated.items.forEach(o => {
-        let statusBadge = o.status === 'Completed' 
-          ? '<span class="badge-paid">Completed</span>' 
-          : '<span class="badge-pending">Pending</span>';
-
-        tableRows += `<tr>
-          <td><strong>${o.orderNumber}</strong></td>
-          <td>${o.customerName}</td>
-          <td>${o.createdAt}</td>
-          <td>${statusBadge}</td>
-          <td>Rs. ${o.total.toLocaleString()}</td>
-          <td style="color:var(--success); font-weight:700;">+ Rs. ${o.advInFilter.toLocaleString()}</td>
-          <td style="color:#2563eb; font-weight:700;">+ Rs. ${o.balInFilter.toLocaleString()}</td>
-          <td style="font-weight:bold; color:var(--brand-accent);">Rs. ${o.netCollected.toLocaleString()}</td>
-        </tr>`;
-      });
-
+      
       document.getElementById('analyticsTableBody').innerHTML = tableRows || '<tr><td colspan="8" style="text-align:center; color:var(--muted);">No financial transactions in selected date range.</td></tr>';
-      renderPaginationBar("analyticsPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderAnalyticsLedger");
-    }
 
-    function filterPendingTable() { renderPendingTable(1); }
-
-    function renderPendingTable(page = 1) {
-      currentPageState.pending = page;
-      const search = (document.getElementById('searchP')?.value || '').toUpperCase();
-      const filtered = globalOrders.filter(o => 
-        o.status === 'Pending' && 
-        (o.orderNumber.toUpperCase().includes(search) || o.customerName.toUpperCase().includes(search) || (o.phone && o.phone.includes(search)))
-      );
-
-      const paginated = paginateArray(filtered, page, PAGE_SIZE);
-      let pBody = '';
-
-      paginated.items.forEach(o => {
-        pBody += `<tr>
-          <td><strong>${o.orderNumber}</strong></td>
-          <td>${o.customerName}</td>
-          <td>${o.dueDate}</td>
-          <td style="color:var(--danger); font-weight:bold;">Rs. ${o.balance}</td>
-          <td>
-            <div class="action-btns">
-              <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">👁️ View</button>
-              <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">✏️ Edit</button>
-              <button class="action-btn btn-done" onclick="markDone('${o.orderNumber}')">✔️ Done</button>
-              <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">🗑️ Del</button>
-            </div>
-          </td>
-        </tr>`;
-      });
-
-      document.getElementById('pBody').innerHTML = pBody || '<tr><td colspan="5" style="text-align:center; color:var(--muted);">No pending orders.</td></tr>';
-      renderPaginationBar("pendingPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderPendingTable");
-    }
-
-    function filterCompletedTable() { renderCompletedTable(1); }
-
-    function renderCompletedTable(page = 1) {
-      currentPageState.completed = page;
-      const search = (document.getElementById('searchC')?.value || '').toUpperCase();
-      const filtered = globalOrders.filter(o => 
-        o.status === 'Completed' && 
-        (o.orderNumber.toUpperCase().includes(search) || o.customerName.toUpperCase().includes(search) || (o.phone && o.phone.includes(search)))
-      );
-
-      const paginated = paginateArray(filtered, page, PAGE_SIZE);
-      let cBody = '';
-
-      paginated.items.forEach(o => {
-        cBody += `<tr>
-          <td><strong>${o.orderNumber}</strong></td>
-          <td>${o.customerName}</td>
-          <td>${o.completedAt}</td>
-          <td style="color:var(--success); font-weight:800;">Rs. ${o.total}</td>
-          <td><span class="badge-paid">PAID</span></td>
-          <td>
-            <div class="action-btns">
-              <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">👁️ View</button>
-              <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">✏️ Edit</button>
-              <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">🗑️ Del</button>
-            </div>
-          </td>
-        </tr>`;
-      });
-
-      document.getElementById('cBody').innerHTML = cBody || '<tr><td colspan="6" style="text-align:center; color:var(--muted);">No completed orders.</td></tr>';
-      renderPaginationBar("completedPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderCompletedTable");
-    }
-
-    function filterCustomersTable() { renderCustomersTable(1); }
-
-    function renderCustomersTable(page = 1) {
-      currentPageState.customers = page;
-      const search = (document.getElementById('searchCust')?.value || '').toUpperCase();
-      let customerMap = {};
-
-      globalOrders.forEach(o => {
-        let name = (o.customerName || '').trim();
-        if(!name) return;
-        let key = name.toLowerCase();
-
-        if(!customerMap[key]) {
-          customerMap[key] = {
-            name: name,
-            phone: o.phone || 'N/A',
-            orderCount: 0,
-            lifetimeVolume: 0,
-            pendingDue: 0
-          };
-        }
-
-        customerMap[key].orderCount++;
-        customerMap[key].lifetimeVolume += parseFloat(o.total) || 0;
-        if(o.status === 'Pending') customerMap[key].pendingDue += parseFloat(o.balance) || 0;
-        if(o.phone && customerMap[key].phone === 'N/A') customerMap[key].phone = o.phone;
-      });
-
-      let custList = Object.values(customerMap).filter(c => 
-        c.name.toUpperCase().includes(search) || c.phone.toUpperCase().includes(search)
-      );
-
-      document.getElementById('cust-count-badge').innerText = `${custList.length} Customers`;
-      const paginated = paginateArray(custList, page, PAGE_SIZE);
-      let body = '';
-
-      paginated.items.forEach(c => {
-        body += `<tr>
-          <td><strong>${c.name}</strong></td>
-          <td>${c.phone}</td>
-          <td><span style="font-weight:700;">${c.orderCount}</span> Orders</td>
-          <td style="font-weight:800; color:var(--brand);">Rs. ${c.lifetimeVolume.toLocaleString()}</td>
-          <td style="font-weight:800; color:${c.pendingDue > 0 ? 'var(--danger)' : 'var(--success)'};">Rs. ${c.pendingDue.toLocaleString()}</td>
-          <td>
-            <button class="action-btn btn-view" onclick="viewCustomerOrders('${c.name.replace(/'/g, "\\'")}')">Orders (${c.orderCount})</button>
-          </td>
-        </tr>`;
-      });
-
-      document.getElementById('custTableBody').innerHTML = body || '<tr><td colspan="6" style="text-align:center; color:var(--muted);">No customer profiles found.</td></tr>';
-      renderPaginationBar("customersPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderCustomersTable");
-    }
-
-    function viewCustomerOrders(custName) {
-      document.getElementById('searchP').value = custName;
-      switchTab('pending', document.getElementById('tab-btn-pend'));
-      filterPendingTable();
-    }
-
-    function openCashInHandPage() {
-      switchTab('vouchersPage', null);
-    }
-
-    function toggleVoucherForm() {
-      const form = document.getElementById('voucherFormContainer');
-      form.style.display = form.style.display === 'none' ? 'block' : 'none';
-      if(form.style.display === 'block') {
-        document.getElementById('vDate').value = formatDateForInput(new Date());
-        document.getElementById('vAmount').focus();
-      }
-    }
-
-    async function fetchDeposits() {
-      try {
-        globalDeposits = await apiCall("getBankDeposits");
-        renderVouchersTable(1);
-        updateCashInHandCalculations();
-      } catch(err) {
-        checkAuthError(err);
-      }
-    }
-
-    function updateCashInHandCalculations() {
-      let totalCashCollected = 0;
-      globalOrders.forEach(o => {
-        let tot = parseFloat(o.total) || 0;
-        let adv = parseFloat(o.advance) || 0;
-        if(o.status === 'Completed') totalCashCollected += tot;
-        else totalCashCollected += adv;
-      });
-
-      let totalDeposited = globalDeposits.reduce((acc, d) => acc + (parseFloat(d.amount) || 0), 0);
-      let netCash = totalCashCollected - totalDeposited;
-
-      const dashCash = document.getElementById('dash-cash-in-hand');
-      if(dashCash) dashCash.innerText = 'Rs. ' + netCash.toLocaleString();
-
-      const vcColl = document.getElementById('v-total-collected');
-      const vcDep = document.getElementById('v-total-deposited');
-      const vcCur = document.getElementById('v-current-cash');
-      if(vcColl) vcColl.innerText = 'Rs. ' + totalCashCollected.toLocaleString();
-      if(vcDep) vcDep.innerText = 'Rs. ' + totalDeposited.toLocaleString();
-      if(vcCur) vcCur.innerText = 'Rs. ' + netCash.toLocaleString();
-    }
-
-    function filterVouchersTable() { renderVouchersTable(1); }
-
-    function renderVouchersTable(page = 1) {
-      currentPageState.vouchers = page;
-      const search = (document.getElementById('searchVouchers')?.value || '').toUpperCase();
-      const filtered = globalDeposits.filter(d => 
-        d.depositId.toUpperCase().includes(search) || 
-        d.bankName.toUpperCase().includes(search) || 
-        d.reference.toUpperCase().includes(search) ||
-        (d.notes && d.notes.toUpperCase().includes(search))
-      );
-
-      const paginated = paginateArray(filtered, page, PAGE_SIZE);
-      let html = '';
-
-      paginated.items.forEach(d => {
-        html += `<tr>
-          <td><strong>${d.depositId}</strong></td>
-          <td>${d.date}</td>
-          <td>${d.bankName}</td>
-          <td>${d.reference || '-'}</td>
-          <td style="color:var(--danger); font-weight:800;">Rs. ${parseFloat(d.amount).toLocaleString()}</td>
-          <td style="color:var(--muted);">${d.notes || '-'}</td>
-          <td>
-            <button class="action-btn btn-del" onclick="deleteVoucherRecord('${d.depositId}')">🗑️ Del</button>
-          </td>
-        </tr>`;
-      });
-
-      document.getElementById('vouchersTableBody').innerHTML = html || '<tr><td colspan="7" style="text-align:center; color:var(--muted);">No bank deposit vouchers saved.</td></tr>';
-      renderPaginationBar("vouchersPagination", paginated.page, paginated.totalPages, paginated.totalItems, paginated.startIndex, paginated.endIndex, "renderVouchersTable");
-    }
-
-    async function submitVoucher() {
-      const amount = parseFloat(document.getElementById('vAmount').value);
-      const bank = document.getElementById('vBank').value.trim();
-      const date = document.getElementById('vDate').value;
-      const ref = document.getElementById('vRef').value.trim();
-      const notes = document.getElementById('vNotes').value.trim();
-
-      if(isNaN(amount) || amount <= 0) {
-        showToast("Please enter a valid deposit amount.", "error");
-        return;
-      }
-      if(!bank) {
-        showToast("Please enter Bank Name.", "error");
-        return;
-      }
-
-      try {
-        await apiCall("saveBankDeposit", {
-          data: { date: date, amount: amount, bankName: bank, reference: ref, notes: notes }
-        });
-        showToast("Voucher recorded successfully.", "success");
-        document.getElementById('vAmount').value = '';
-        document.getElementById('vBank').value = '';
-        document.getElementById('vRef').value = '';
-        document.getElementById('vNotes').value = '';
-        toggleVoucherForm();
-        fetchDeposits();
-      } catch(err) {
-        showToast("Error saving voucher: " + err.message, "error");
-      }
-    }
-
-    function deleteVoucherRecord(depositId) {
-      openConfirmModal(
-        "Delete Voucher",
-        `WARNING: Are you sure you want to permanently delete voucher ${depositId}?`,
-        "🗑️ Yes, Delete",
-        "var(--danger)",
-        async function() {
-          try {
-            await apiCall("deleteBankDeposit", { depositId: depositId });
-            showToast(`${depositId} deleted successfully.`, "success");
-            fetchDeposits();
-          } catch(err) {
-            showToast("Failed to delete voucher: " + err.message, "error");
-          }
-        }
-      );
+      renderAnalyticsCharts(bookedVal, totalCollected, uncollected, pCount, cCount);
     }
 
     async function fetchOrders() {
       try {
         let orders = await apiCall("getAllOrders");
         globalOrders = orders;
-        renderPendingTable(1);
-        renderCompletedTable(1);
-        renderCustomersTable(1);
+        var pBody = '', cBody = '';
+        orders.forEach(function(o) {
+          if(o.status === 'Pending') {
+            pBody += `<tr>
+              <td><strong>${o.orderNumber}</strong></td><td>${o.customerName}</td><td>${o.dueDate}</td><td style="color:var(--danger); font-weight:bold;">Rs. ${o.balance}</td>
+              <td>
+                <div class="action-btns">
+                  <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">👁️ View</button>
+                  <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">✏️ Edit</button>
+                  <button class="action-btn btn-done" onclick="markDone('${o.orderNumber}')">✔️ Done</button>
+                  <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">🗑️ Del</button>
+                </div>
+              </td>
+            </tr>`;
+          } else {
+            cBody += `<tr>
+              <td><strong>${o.orderNumber}</strong></td>
+              <td>${o.customerName}</td>
+              <td>${o.completedAt}</td>
+              <td style="color:var(--success); font-weight:800;">Rs. ${o.total}</td>
+              <td><span class="badge-paid">PAID</span></td>
+              <td>
+                <div class="action-btns">
+                  <button class="action-btn btn-view" onclick="openViewModal('${o.orderNumber}')">👁️ View</button>
+                  <button class="action-btn btn-edit" onclick="loadOrderForEdit('${o.orderNumber}')">✏️ Edit</button>
+                  <button class="action-btn btn-del" onclick="deleteRecord('${o.orderNumber}')">🗑️ Del</button>
+                </div>
+              </td>
+            </tr>`;
+          }
+        });
+        document.getElementById('pBody').innerHTML = pBody || '<tr><td colspan="5" style="text-align:center;">No pending orders.</td></tr>';
+        document.getElementById('cBody').innerHTML = cBody || '<tr><td colspan="6" style="text-align:center;">No completed orders.</td></tr>';
+        
         runAnalyticsFilter();
       } catch(err) {
         checkAuthError(err);
@@ -1664,22 +1178,46 @@
     }
 
     function addSuit() {
+      clearInputErrors();
       let colorInput = document.getElementById('suitColor');
       let simpleInput = document.getElementById('suitSimple');
       let designInput = document.getElementById('suitDesign');
       let qtyInput = document.getElementById('suitQty');
 
       let color = colorInput.value.trim();
-      let simple = parseFloat(simpleInput.value.trim()) || 0;
-      let design = parseFloat(designInput.value.trim()) || 0;
-      let qty = parseInt(qtyInput.value.trim(), 10) || 1;
+      let simpleVal = simpleInput.value.trim();
+      let designVal = designInput.value.trim();
+      let qtyVal = qtyInput.value.trim();
+
+      let isValid = true;
 
       if(!color) {
-        showToast("Please enter Fabric / Color name.", "error");
+        highlightErrorField('suitColor');
+        isValid = false;
+      }
+      if(simpleVal === "" || isNaN(parseFloat(simpleVal))) {
+        highlightErrorField('suitSimple');
+        isValid = false;
+      }
+      if(designVal === "" || isNaN(parseFloat(designVal))) {
+        highlightErrorField('suitDesign');
+        isValid = false;
+      }
+      if(qtyVal === "" || isNaN(parseInt(qtyVal)) || parseInt(qtyVal) < 1) {
+        highlightErrorField('suitQty');
+        isValid = false;
+      }
+
+      if(!isValid) {
+        showToast("Please fill in valid suit details and quantity.", "error");
         return;
       }
 
-      let subtotal = (simple + design) * qty;
+      let simple = parseFloat(simpleVal);
+      let design = parseFloat(designVal);
+      let qty = parseInt(qtyVal, 10);
+      let unitPrice = simple + design;
+      let subtotal = unitPrice * qty;
 
       if(editingSuitIndex !== null && editingSuitIndex < cart.length) {
         cart[editingSuitIndex] = { color: color, simple: simple, design: design, qty: qty, subtotal: subtotal };
@@ -1688,10 +1226,10 @@
         cart.push({ color: color, simple: simple, design: design, qty: qty, subtotal: subtotal });
       }
 
-      colorInput.value = '';
-      simpleInput.value = '0';
-      designInput.value = '0';
-      qtyInput.value = '1';
+      document.getElementById('suitColor').value = '';
+      document.getElementById('suitSimple').value = '0';
+      document.getElementById('suitDesign').value = '0';
+      document.getElementById('suitQty').value = '1';
       let btn = document.getElementById('addSuitBtn');
       if(btn) {
         btn.innerText = "ADD";
@@ -1750,7 +1288,7 @@
     function loadOrderForEdit(orderId) {
       try {
         let order = globalOrders.find(o => o.orderNumber === orderId || o.rawOrderNumber === orderId);
-        if(!order) { showToast("Order not found.", "error"); return; }
+        if(!order) { showToast("Order not found in memory.", "error"); return; }
         
         editingOrderId = order.orderNumber;
         document.getElementById('custName').value = order.customerName || '';
@@ -1786,7 +1324,18 @@
           });
         }
         
-        if(cart.length > 0) editSuit(0);
+        if(cart.length > 0) {
+          editSuit(0);
+        } else {
+          editingSuitIndex = null;
+          document.getElementById('suitColor').value = '';
+          document.getElementById('suitSimple').value = '0';
+          document.getElementById('suitDesign').value = '0';
+          document.getElementById('suitQty').value = '1';
+          let btn = document.getElementById('addSuitBtn');
+          if(btn) { btn.innerText = "ADD"; btn.style.background = "var(--brand)"; btn.style.color = "white"; }
+        }
+
         updateBill();
         
         document.getElementById('edit-alert').style.display = 'block';
@@ -1799,7 +1348,7 @@
         switchTab('newOrder', document.getElementById('tab-btn-create'));
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } catch (err) {
-        showToast("Error opening editor: " + err.message, "error");
+        showToast("System error opening editor: " + err.message, "error");
       }
     }
 
@@ -1811,11 +1360,15 @@
       btn.innerText = "SAVE ORDER";
       btn.style.background = "var(--success)";
       btn.style.color = "white";
+      let addBtn = document.getElementById('addSuitBtn');
+      if(addBtn) { addBtn.innerText = "ADD"; addBtn.style.background = "var(--brand)"; addBtn.style.color = "white"; }
       resetForm();
     }
 
     async function submitOrder() {
+      clearInputErrors();
       let activeColor = document.getElementById('suitColor').value.trim();
+      
       if(activeColor) {
         let simple = parseFloat(document.getElementById('suitSimple').value) || 0;
         let design = parseFloat(document.getElementById('suitDesign').value) || 0;
@@ -1830,11 +1383,14 @@
         editingSuitIndex = null;
         document.getElementById('suitColor').value = '';
         document.getElementById('suitQty').value = '1';
+        let addBtn = document.getElementById('addSuitBtn');
+        if(addBtn) { addBtn.innerText = "ADD"; addBtn.style.background = "var(--brand)"; addBtn.style.color = "white"; }
         updateBill();
       }
 
       if(cart.length === 0) { 
-        showToast("Cart is empty. Please add at least one suit.", "warning"); 
+        highlightErrorField('suitColor');
+        showToast("Order cart is empty. Please add at least one suit.", "warning"); 
         return; 
       }
 
@@ -1842,10 +1398,12 @@
       let dueVal = document.getElementById('dueDate').value.trim();
 
       if(!custVal) {
+        highlightErrorField('custName');
         showToast("Please enter Customer Name.", "error");
         return;
       }
       if(!dueVal) {
+        highlightErrorField('dueDate');
         showToast("Please select a Final Due Date.", "error");
         return;
       }
@@ -1913,12 +1471,13 @@
         "✔️ Yes, Complete",
         "var(--success)",
         async function() {
+          document.getElementById('pBody').innerHTML = '<tr><td colspan="5" style="text-align:center;">Updating status...</td></tr>'; 
           try {
             await apiCall("markOrderCompleted", { orderId: orderId });
             showToast(`${orderId} marked as Completed.`, "success");
             fetchOrders();
           } catch(err) {
-            showToast("Failed: " + err.message, "error");
+            showToast("Failed to complete order: " + err.message, "error");
             fetchOrders();
           }
         }
@@ -1932,20 +1491,23 @@
         "🗑️ Yes, Delete",
         "var(--danger)",
         async function() {
+          document.getElementById('pBody').innerHTML = '<tr><td colspan="5" style="text-align:center;">Deleting...</td></tr>'; 
+          document.getElementById('cBody').innerHTML = '<tr><td colspan="6" style="text-align:center;">Deleting...</td></tr>'; 
           try {
             await apiCall("deleteOrder", { orderId: orderId });
-            showToast(`${orderId} deleted permanently.`, "success");
+            showToast(`${orderId} permanently deleted.`, "success");
             fetchOrders();
           } catch(err) {
-            showToast("Failed: " + err.message, "error");
+            showToast("Failed to delete order: " + err.message, "error");
             fetchOrders();
           }
         }
       );
     }
 
+    function filterTable(tableId, inputId) { var filter = document.getElementById(inputId).value.toUpperCase(); var tr = document.getElementById(tableId).getElementsByTagName("tr"); for (var i = 1; i < tr.length; i++) { var text = tr[i].textContent || tr[i].innerText; tr[i].style.display = text.toUpperCase().indexOf(filter) > -1 ? "" : "none"; } }
     function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
-    function resetForm() { ['custName', 'phone', 'notes', 'dueDate'].forEach(id => document.getElementById(id).value = ''); document.getElementById('adv').value = '0'; cart = []; editingSuitIndex = null; updateBill(); closeModal('successModal'); }
+    function resetForm() { clearInputErrors(); ['custName', 'phone', 'notes', 'dueDate'].forEach(id => document.getElementById(id).value = ''); document.getElementById('adv').value = '0'; cart = []; editingSuitIndex = null; updateBill(); closeModal('successModal'); }
     function triggerPrint(activeModalId) { document.getElementById(activeModalId).style.display = 'none'; setTimeout(() => { window.print(); setTimeout(() => { document.getElementById(activeModalId).style.display = 'flex'; }, 500); }, 100); }
     
     function parseCartStringForModal(cartString) {
@@ -1986,24 +1548,11 @@
       
       if(orderObj.status === 'Completed' || (orderObj.completedAt && orderObj.completedAt !== "")) {
         let finalPay = parseFloat(orderObj.total) - parseFloat(orderObj.advance);
-        document.getElementById('r-final-row').style.display = 'flex'; 
-        document.getElementById('r-final-paid').innerText = 'Rs. ' + finalPay; 
-        document.getElementById('r-bal-due').innerText = 'Rs. 0'; 
-        document.getElementById('r-paid-stamp').style.display = 'block'; 
-        document.getElementById('r-delivered-row').style.display = 'flex'; 
-        document.getElementById('r-del-date').innerText = orderObj.completedAt;
+        document.getElementById('r-final-row').style.display = 'flex'; document.getElementById('r-final-paid').innerText = 'Rs. ' + finalPay; document.getElementById('r-bal-due').innerText = 'Rs. 0'; document.getElementById('r-paid-stamp').style.display = 'block'; document.getElementById('r-delivered-row').style.display = 'flex'; document.getElementById('r-del-date').innerText = orderObj.completedAt;
       } else {
-        document.getElementById('r-final-row').style.display = 'none'; 
-        document.getElementById('r-bal-due').innerText = 'Rs. ' + orderObj.balance; 
-        document.getElementById('r-paid-stamp').style.display = 'none'; 
-        document.getElementById('r-delivered-row').style.display = 'none';
+        document.getElementById('r-final-row').style.display = 'none'; document.getElementById('r-bal-due').innerText = 'Rs. ' + orderObj.balance; document.getElementById('r-paid-stamp').style.display = 'none'; document.getElementById('r-delivered-row').style.display = 'none';
       }
-      if(orderObj.notes && orderObj.notes.trim() !== '') { 
-        document.getElementById('r-notes-div').style.display = 'block'; 
-        document.getElementById('r-notes-text').innerText = orderObj.notes; 
-      } else {
-        document.getElementById('r-notes-div').style.display = 'none';
-      }
+      if(orderObj.notes && orderObj.notes.trim() !== '') { document.getElementById('r-notes-div').style.display = 'block'; document.getElementById('r-notes-text').innerText = orderObj.notes; } else document.getElementById('r-notes-div').style.display = 'none';
     }
 
     function openViewModal(orderId) {
@@ -2011,32 +1560,16 @@
       if(!order) return;
       document.getElementById('r-bill-title').innerText = "CUSTOMER INVOICE";
       document.getElementById('mv-title').innerText = order.orderNumber;
-      document.getElementById('mv-cust').innerText = order.customerName; 
-      document.getElementById('mv-phone').innerText = order.phone || 'N/A'; 
-      document.getElementById('mv-date').innerText = order.createdAt; 
-      document.getElementById('mv-due').innerText = (order.status === 'Completed') ? order.completedAt : order.dueDate;
+      document.getElementById('mv-cust').innerText = order.customerName; document.getElementById('mv-phone').innerText = order.phone || 'N/A'; document.getElementById('mv-date').innerText = order.createdAt; document.getElementById('mv-due').innerText = (order.status === 'Completed') ? order.completedAt : order.dueDate;
       document.getElementById('mv-cart').innerHTML = parseCartStringForModal(order.cartDetails);
-      document.getElementById('mv-tot').innerText = "Rs. " + order.total; 
-      document.getElementById('mv-adv').innerText = "Rs. " + order.advance;
+      document.getElementById('mv-tot').innerText = "Rs. " + order.total; document.getElementById('mv-adv').innerText = "Rs. " + order.advance;
       
       if(order.status === 'Completed') {
-        document.getElementById('mv-final-box').style.display = 'block'; 
-        document.getElementById('mv-final').innerText = "Rs. " + (parseFloat(order.total) - parseFloat(order.advance)); 
-        document.getElementById('mv-bal-label').innerText = "Status"; 
-        document.getElementById('mv-bal').innerText = "PAID IN FULL"; 
-        document.getElementById('mv-bal-bg').style.background = "#ecfdf5"; 
-        document.getElementById('mv-bal-bg').style.borderColor = "#a7f3d0"; 
-        document.getElementById('mv-bal').style.color = "var(--success)";
+        document.getElementById('mv-final-box').style.display = 'block'; document.getElementById('mv-final').innerText = "Rs. " + (parseFloat(order.total) - parseFloat(order.advance)); document.getElementById('mv-bal-label').innerText = "Status"; document.getElementById('mv-bal').innerText = "PAID IN FULL"; document.getElementById('mv-bal-bg').style.background = "#ecfdf5"; document.getElementById('mv-bal-bg').style.borderColor = "#a7f3d0"; document.getElementById('mv-bal').style.color = "var(--success)";
       } else {
-        document.getElementById('mv-final-box').style.display = 'none'; 
-        document.getElementById('mv-bal-label').innerText = "Balance Due"; 
-        document.getElementById('mv-bal').innerText = "Rs. " + order.balance; 
-        document.getElementById('mv-bal-bg').style.background = "#fff7ed"; 
-        document.getElementById('mv-bal-bg').style.borderColor = "#ffedd5"; 
-        document.getElementById('mv-bal').style.color = "var(--brand-accent)";
+        document.getElementById('mv-final-box').style.display = 'none'; document.getElementById('mv-bal-label').innerText = "Balance Due"; document.getElementById('mv-bal').innerText = "Rs. " + order.balance; document.getElementById('mv-bal-bg').style.background = "#fff7ed"; document.getElementById('mv-bal-bg').style.borderColor = "#ffedd5"; document.getElementById('mv-bal').style.color = "var(--brand-accent)";
       }
-      populateReceiptFormat(order); 
-      document.getElementById('viewModal').style.display = 'flex';
+      populateReceiptFormat(order); document.getElementById('viewModal').style.display = 'flex';
     }
   </script>
 </body>
