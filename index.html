@@ -124,7 +124,7 @@
     }
     @keyframes pulseAnim { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 
-    .header-right { display: flex; align-items: center; gap: 14px; }
+    .header-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
     .header-clock {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11.5px;
@@ -144,6 +144,7 @@
       border-radius: var(--radius-sm);
       transition: all 0.2s ease;
       letter-spacing: 0.4px;
+      white-space: nowrap;
     }
     .logout-btn:hover { background: var(--brand-orange); border-color: var(--brand-orange); color: #fff; box-shadow: var(--shadow-orange); }
 
@@ -630,14 +631,25 @@
     .page-btn:disabled { opacity: 0.35; cursor: not-allowed; }
     .page-ellipsis { color: var(--slate-400); font-weight: 700; padding: 0 4px; font-size: 12px; }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE VOUCHER SUMMARY GRID (DESKTOP: 3 COLS, MOBILE: STACKED CLEAN CARDS) */
+    .voucher-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    /* RESPONSIVE STYLES */
     @media screen and (max-width: 768px) {
-      header { padding: 10px 16px; }
-      header h1 { font-size: 16px; }
-      .brand-zul { font-size: 26px; }
+      header { padding: 10px 14px; gap: 8px; }
+      header h1 { font-size: 15px; }
+      .brand-zul { font-size: 24px; }
       .header-clock { display: none; }
+      .system-tag-green { display: none !important; } /* Eliminates collision with Logout button */
+      .logout-btn { padding: 6px 12px; font-size: 11px; }
+
       .container { padding: 0 12px; margin: 14px auto; }
-      .main-card { padding: 18px 14px; }
+      .main-card { padding: 16px 12px; }
       .order-subgrid { grid-template-columns: 1fr; gap: 16px; }
       .live-bill { position: static; }
 
@@ -645,12 +657,27 @@
         display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
         border-radius: var(--radius); padding: 6px; margin-bottom: 16px;
       }
-      .nav-tabs button { width: 100%; text-align: center; border-radius: var(--radius-sm); padding: 11px 4px; font-size: 11px; }
+      .nav-tabs button { width: 100%; text-align: center; border-radius: var(--radius-sm); padding: 10px 2px; font-size: 11px; }
       .form-row { grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px; }
       .suit-inputs { grid-template-columns: 1.2fr 1fr 1fr 0.8fr; }
       .add-btn { grid-column: 1 / -1; height: 44px; }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .pagination-bar { flex-direction: column; align-items: center; }
+
+      /* VOUCHER CARDS MOBILE PERFECTION */
+      .voucher-summary-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        margin-bottom: 18px !important;
+      }
+      .voucher-summary-grid .v-box {
+        padding: 16px 18px !important;
+        border-radius: var(--radius) !important;
+      }
+      .voucher-summary-grid .v-box .num {
+        font-size: 22px !important;
+        margin-top: 6px !important;
+      }
     }
 
     @media screen and (max-width: 480px) {
@@ -836,7 +863,7 @@
               </div>
             </div>
 
-            <!-- CLICKABLE CASH IN HAND CARD (SWITCHES TO FULL VOUCHERS PAGE) -->
+            <!-- CLICKABLE CASH IN HAND CARD -->
             <div class="stat-card sc-purple" style="cursor: pointer;" onclick="openCashInHandPage()" role="button" tabindex="0" title="Click to view all saved vouchers on a full page">
               <div class="stat-icon-box">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
@@ -1018,7 +1045,7 @@
         </div>
       </div>
 
-      <!-- FULL SEPARATE PAGE: CASH IN HAND & BANK VOUCHERS (10 ITEMS PER PAGE) -->
+      <!-- FULL SEPARATE PAGE: CASH IN HAND & BANK VOUCHERS -->
       <div id="vouchers" class="tab-content">
         <div class="main-card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
@@ -1029,8 +1056,8 @@
             <button class="add-btn" style="background:#8b5cf6;" onclick="toggleVoucherForm()">+ Record Bank Deposit</button>
           </div>
 
-          <!-- RECONCILIATION SUMMARY BOXES -->
-          <div class="view-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 22px;">
+          <!-- RECONCILIATION SUMMARY BOXES (STACKS ON MOBILE) -->
+          <div class="voucher-summary-grid">
             <div class="v-box" style="border-top:3px solid var(--slate-900); padding:16px;">
               <label>Net Revenue Collected</label>
               <div id="bm-net-collected" class="num" style="color:var(--slate-900); font-size:18px; margin-top:4px;">Rs. 0</div>
@@ -1048,7 +1075,7 @@
             </div>
           </div>
 
-          <!-- VOUCHER FORM (COLLAPSIBLE) -->
+          <!-- VOUCHER FORM -->
           <div id="voucherFormContainer" style="display:none; background: var(--slate-50); padding: 20px; border-radius: var(--radius); border: 1px solid var(--slate-200); margin-bottom: 24px;">
             <div id="dep-edit-alert" style="display:none; background: var(--brand-orange-light); color: var(--brand-orange-hover); padding: 12px 14px; border-radius: var(--radius-sm); font-weight: 700; margin-bottom: 14px; font-size: 12.5px; border: 1px solid var(--brand-orange-border);">
               Editing Deposit Voucher: <span id="dep-edit-id-label"></span>.
